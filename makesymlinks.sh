@@ -1,5 +1,7 @@
 #!/bin/bash
 ############################
+# idea from
+# http://blog.smalleycreative.com/tutorials/using-git-and-github-to-manage-your-dotfiles/
 # makesymlinks.sh
 # This script creates symlinks from the home directory to the dotfiles
 # in dir
