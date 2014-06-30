@@ -1,0 +1,29 @@
+# Vim snippets for matlab
+
+# Licensed under the "THE BEER-WARE LICENSE" (Revision 42):
+# can do whatever you want with this stuff. If we meet some day, and you think
+# this stuff is worth it, you can buy me a beer or coffee in return
+
+snippet for
+	for j = 1:${1}
+		${2}
+	end
+# printing
+snippet pr
+	fprintf('${1:%g\n}', ${2});
+snippet prs
+	fprintf('${1}');
+snippet try
+	try
+		${1}
+	catch exception
+		${2}
+		rethrow(exception);
+	end
+snippet fig
+	figure(${1:1})
+	plot(${2:time},${3:data});
+	axis([0, max($2), min($3), max($3)]);
+	xlabel('time [s]');
+	ylabel('$2');
+	legend('dat','Location','best');

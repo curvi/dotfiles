@@ -1,0 +1,40 @@
+#Vim snippets for Arduino
+extends c, cpp
+
+#Licensed under the "THE BEER-WARE LICENSE" (Revision 42):
+#can do whatever you want with this stuff. If we meet some day, and you think
+#this stuff is worth it, you can buy me a beer or tee in return
+# extended from Sudar <http://sudarmuthu.com>
+
+# setup()
+snippet setup
+	void setup()
+	{
+		${1}
+	}
+snippet loop
+	void loop()
+	{
+		${1}
+	}
+# digitalWrite - High
+snippet dwh
+	digitalWrite(${1:13},${2:HIGH});
+# digitalWrite - Low
+snippet dwl
+	digitalWrite(${1:13},${2:LOW});
+# pinMode - Input
+snippet pmi
+	pinMode(${1:13},${2:INPUT});
+# pinMode - Output
+snippet pmo
+	pinMode(${1:13},${2:OUTPUT});
+# printing
+snippet sp
+	Serial.print(${1});
+snippet spl
+	Serial.println(${1});
+snippet sps
+	Serial.print(F("${1}"));
+snippet spls
+	Serial.println(F("${1}"));
