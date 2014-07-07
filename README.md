@@ -9,21 +9,18 @@ install homebrew, brew doctor, chown $(whoami) /..../
 brew install git
 install macvim
 git clone https://github.com/niccnacc/dotfiles.git ~/Documents/dotfiles/
+source ~/.bash_profile
 
-install Vundle
-brew tmux
-
-!!!should be neglectable!!!
-Tmux,vim - split navigation:
-https://gist.github.com/mislav/5189704
-curl -fsSL https://gist.github.com/mislav/5189704/raw/install.sh | bash -e
+install Vundle git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+brew install tmux
 
 tmux clipboard ([exited] on startup)
 http://robots.thoughtbot.com/how-to-copy-and-paste-with-tmux-on-mac-os-x
 brew install reattach-to-user-namespace
 
 
-Wrapper App for vim in terminal/tmux
+
+Wrapper App for vim in terminal
 use automator (new application, run applescript) with following code:
 on run {input}
 	-- "word 1 of myProcessInfo" is the unix id of the process
