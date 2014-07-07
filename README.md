@@ -22,6 +22,7 @@ brew install reattach-to-user-namespace
 
 Wrapper App for vim in terminal
 use automator (new application, run applescript) with following code:
+
 on run {input}
 	-- "word 1 of myProcessInfo" is the unix id of the process
 	-- "word 2 of myProcessInfo" is the unix id of the parent process
