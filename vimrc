@@ -247,6 +247,8 @@ autocmd FileType conf,fstab      let b:comment_leader = '#'
 autocmd FileType tex,matlab      let b:comment_leader = '%'
 autocmd FileType vim             let b:comment_leader = '"'
 
+" s/\v^[ \t]*\zs\ze[^ \t]/b:comment_leader /g
+
 function! ToggleComment()
   if exists('b:comment_leader')
     if getline('.') =~ '^\(\s\)*' . b:comment_leader
