@@ -7,6 +7,7 @@ Used on OSX with iterm2 tmux vim,..
 install iterm
 install homebrew, brew doctor, chown $(whoami) /..../
 brew install git
+git config --global core.excludesfile ~/.gitignore_global
 install macvim
 git clone https://github.com/niccnacc/dotfiles.git ~/Documents/dotfiles/
 source ~/.bash_profile
@@ -22,11 +23,7 @@ brew install reattach-to-user-namespace
 
 Wrapper App for vim in terminal
 use automator (new application, run applescript) with following code:
-<<<<<<< HEAD
 
-´´´bashscript
-=======
->>>>>>> parent of d679de9... fixed code in readme
 on run {input}
 	-- "word 1 of myProcessInfo" is the unix id of the process
 	-- "word 2 of myProcessInfo" is the unix id of the parent process
@@ -75,4 +72,3 @@ on run {input}
 		end tell
 	end if
 end run
-´´´
