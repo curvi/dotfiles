@@ -1,4 +1,7 @@
 # ignore the following files/directories
-/vim/Session.vim   # vim sessions info
-bundle/       # local vim addons
-/vim/.netrwhist    # dir history
+# vim sessions info
+vim/Session.vim
+# dir history
+vim/.netrwhist
+# local vim addons
+vim/bundle
