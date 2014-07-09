@@ -246,15 +246,11 @@ autocmd FileType matlab,tex      let b:comment_leader = '%'
 autocmd FileType vim             let b:comment_leader = '"'
 
 function! ToggleComment()
-" help with :h \v or ^ \s * \zs \_[]
+" help with :h \v or pattern-atoms /*
   if exists('b:comment_leader')
     if getline('.') =~ '\v^\s*' .b:comment_leader
       " uncomment the line
-      try
-        execute 'silent s/\v^\s*\zs' .b:comment_leader.' //g'
-      catch
-        execute 'silent s/\v^\s*\zs' .b:comment_leader.'//g'
-      endtry
+      execute 'silent s/\v^\s*\zs' .b:comment_leader.'[ ]?//g'
     else
       " comment the line
       execute 'silent s/\v^\s*\zs\ze(\S|\n)/' .b:comment_leader.' /g'
