@@ -1,0 +1,4 @@
+# ignore the following files/directories
+*/.DS_Store     # folder settings
+vim/Session.vim # vim sessions info
+vim/bundle/     # local vim addons
