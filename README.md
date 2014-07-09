@@ -9,6 +9,8 @@ install homebrew, brew doctor, chown $(whoami) /..../
 brew install git
 git clone https://github.com/niccnacc/dotfiles.git ~/Documents/dotfiles/
 git config --global core.excludesfile ~/.gitignore_global
+git config --global alias.list \
+'log --graph --decorate --pretty=oneline --abbrev-commit --all @{upstream}^..'
 source ~/.bash_profile
 
 install macvim
