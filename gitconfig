@@ -1,3 +1,6 @@
+[user]
+  name = 'niccnacc'
+  email = 'michael@schwegel.at'
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore_global
@@ -10,3 +13,5 @@
   co = checkout
   br = branch
   s  = status
+[color]
+  ui = true
