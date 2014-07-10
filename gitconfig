@@ -13,6 +13,5 @@
 	noup  = log --graph --pretty=format:'%h - %s | %ar' --all @{upstream}^..
   list  = log --graph --pretty=format:'%h - %s | %ar ' --name-status -3
   list2 = log --graph --pretty=format:'%h - %s | %ar' --since=1.week
-  list3 = log --graph --pretty=format:'%h - %s | %ar ' --name-status
 [color]
   ui = true
