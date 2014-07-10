@@ -1,6 +1,6 @@
 [user]
-  name = 'niccnacc'
-  email = 'michael@schwegel.at'
+  name = niccnacc
+  email = michael@schwegel.at
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore_global

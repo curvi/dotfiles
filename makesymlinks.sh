@@ -11,7 +11,7 @@
 
 dir=~/Documents/dotfiles                    # dotfiles directory
 olddir=~/Documents/dotfiles_old             # old dotfiles backup directory
-files="bash_profile vimrc vim tmux tmux.conf gitconfig gitignore_global"    # list of files/folders
+files="bash_profile vimrc vim tmux tmux.conf gitconfig gitignore_global"
 
 ##########
 
@@ -27,10 +27,17 @@ echo "...done"
 
 # move any existing dotfiles in homedir to dotfiles_old directory
 # then create symlinks
-echo "Moving any existing dotfiles from ~ to $olddir"
-echo "and creating symlinks for new files in $dir"
+echo "Moving existing dotfiles from ~ to $olddir"
+echo "and creating symlinks to files in $dir"
 for file in $files; do
-    echo "move and create symlink to $file"
-    mv ~/.$file ~/dotfiles_old/
+  if ! [ -h ~/.$file ]; then
+    echo "$file:"
+    echo "move from ~/. to $olddir"
+    mv ~/.$file $olddir/$file
+    echo "creating symlink"
     ln -s $dir/$file ~/.$file
+    echo " "
+  else
+    echo "already symlinked: $file"
+  fi
 done
