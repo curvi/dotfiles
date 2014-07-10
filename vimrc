@@ -238,37 +238,25 @@ inoremap <C-u> <Esc>viwUea
 
 " COMMENTS
 """"""""""""
-autocmd FileType c,cpp,java      let b:comment_leader = '//'
-autocmd FileType arduino         let b:comment_leader = '//'
-autocmd FileType c,cpp,java      let b:comment_leader2 = '\/\/'
-autocmd FileType arduino         let b:comment_leader2 = '\/\/'
+autocmd FileType c,cpp,java      let b:comment_leader = '\/\/'
+autocmd FileType arduino         let b:comment_leader = '\/\/'
 autocmd FileType sh,ruby,python  let b:comment_leader = '#'
 autocmd FileType conf,fstab      let b:comment_leader = '#'
-autocmd FileType tex,matlab      let b:comment_leader = '%'
+autocmd FileType matlab,tex      let b:comment_leader = '%'
 autocmd FileType vim             let b:comment_leader = '"'
 
 function! ToggleComment()
+" help with :h \v or pattern-atoms /*
   if exists('b:comment_leader')
-    if getline('.') =~ '^\(\s\)*' . b:comment_leader
-      " Uncomment the line
-      if exists('b:comment_leader2')
-        " dirty hack for escaping //
-        let b:comment_leader3 = b:comment_leader2
-      else
-        let b:comment_leader3 = b:comment_leader
-      end
-      try
-        execute 'silent s/'.b:comment_leader3.' //'
-      catch
-        execute 'silent s/'.b:comment_leader3.'//'
-      endtry
+    if getline('.') =~ '\v^\s*' .b:comment_leader
+      " uncomment the line
+      execute 'silent s/\v^\s*\zs' .b:comment_leader.'[ ]?//g'
     else
-      " Comment the line
-      execute 'norm I' . b:comment_leader.' '
-      " execute 'silent s/^/' . b:comment_leader . ' /'
+      " comment the line
+      execute 'silent s/\v^\s*\zs\ze(\S|\n)/' .b:comment_leader.' /g'
     endif
   else
-    echo 'No comment leader found for filetype'
+    echo 'no comment leader found for filetype'
   end
 endfunction
 
