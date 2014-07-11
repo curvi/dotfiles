@@ -238,12 +238,13 @@ inoremap <C-u> <Esc>viwUea
 
 " COMMENTS
 """"""""""""
-autocmd FileType c,cpp,java      let b:comment_leader = '\/\/'
-autocmd FileType arduino         let b:comment_leader = '\/\/'
+autocmd FileType c,cpp,java      let b:comment_leader = '//'
+autocmd FileType arduino         let b:comment_leader = '//'
 autocmd FileType sh,ruby,python  let b:comment_leader = '#'
 autocmd FileType conf,fstab      let b:comment_leader = '#'
-autocmd FileType matlab,tex      let b:comment_leader = '\%'
+autocmd FileType matlab,tex      let b:comment_leader = '%'
 autocmd FileType vim             let b:comment_leader = '"'
+autocmd FileType * let b:comment_leader = escape(b:comment_leader,b:comment_leader)
 
 function! ToggleComment()
 " help with :h \v or pattern-atoms /*
