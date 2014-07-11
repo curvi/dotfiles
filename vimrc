@@ -44,10 +44,15 @@ let g:ctrlp_working_path_mode = 'c'
 " easy motion
 " all these work with <leader> _
 let g:EasyMotion_smartcase = 1
-nmap <leader>s <Plug>(easymotion-s2)
-map j <Plug>(easymotion-j)
-map k <Plug>(easymotion-k)
+nnoremap <leader>s <Plug>(easymotion-s2)
+" map j <Plug>(easymotion-j)
+" map k <Plug>(easymotion-k)
 
+" airline font
+" https://github.com/antindexer/monaco
+let g:airline_powerline_fonts=1
+
+" RainbowParentheses
 let g:rbpt_colorpairs = [
     \ ['Darkblue',    'SeaGreen3'],
     \ ['darkgreen',   'firebrick3'],
@@ -62,8 +67,6 @@ let g:rbpt_colorpairs = [
     \ ]
 let g:rbpt_max = 16
 nnoremap <leader>h :RainbowParenthesesToggle<cr>
-
-" let g:airline_powerline_fonts=1
 
 
 " GENERAL
@@ -126,7 +129,7 @@ set scrolloff=3         " start scrolling 3 lines b4 border
 set cindent
 set backspace=indent,eol,start " backspace everything in insert mode
 set showmode
-set titlestring=%f title " show the filename in the terminal titlebar
+" set titlestring=%f title " show the filename in the terminal titlebar
 set showcmd             " show the (partial) command as it’s being typed
 set wildmenu
 set laststatus=2        " allways show statusbar
