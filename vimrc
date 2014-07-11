@@ -247,7 +247,13 @@ autocmd FileType sh,ruby,python  let b:comment_leader = '#'
 autocmd FileType conf,fstab      let b:comment_leader = '#'
 autocmd FileType matlab,tex      let b:comment_leader = '%'
 autocmd FileType vim             let b:comment_leader = '"'
-autocmd FileType * let b:comment_leader = escape(b:comment_leader,b:comment_leader)
+autocmd FileType * exe EscapeCommentLeader()
+
+function! EscapeCommentLeader()
+  if exists('b:comment_leader')
+    let b:comment_leader = escape(b:comment_leader,b:comment_leader)
+  endif
+endfunction
 
 function! ToggleComment()
 " help with :h \v or pattern-atoms /*
@@ -264,8 +270,9 @@ function! ToggleComment()
   end
 endfunction
 
-nnoremap <leader>c :call ToggleComment()<cr>
-nnoremap <leader>r :source ~/.vimrc<cr>
+nnoremap <leader>c :call ToggleComment()<CR>
+
+nnoremap <leader>r :source ~/.vimrc<CR>
 
 
 " OPEN LAST
