@@ -25,6 +25,7 @@ call vundle#begin()
   Bundle 'matchit.zip'
   Bundle 'rainbow_parentheses.vim'
   Bundle 'jrestrepo/matlab'
+  Bundle 'gibiansky/vim-latex-objects'
 " other stuff
   " Plugin 'The-NERD-Commenter'
   " Bundle 'JuliaLang/julia-vim'
