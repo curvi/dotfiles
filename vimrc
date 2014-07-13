@@ -175,10 +175,6 @@ set incsearch           " highlight while typing allready
 " remove highlights after searching
 nnoremap <leader><Space> :noh<cr>
 
-" use tab to jump brackets
-nnoremap <tab> %
-vnoremap <tab> %
-
 
 " MOVEMENTS
 """""""""""""
