@@ -2,6 +2,7 @@ export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
 export PATH=$PATH:/usr/texbin
 export PATH=$PATH:/Applications/MATLAB_R2012b.app/bin
 export PATH=$PATH:/Applications/MATLAB_R2012b.app/bin/maci64
+# export DYLD_LIBRARY_PATH=/Applications/MATLAB_R2012b.app/bin/maci64
 
 alias sudo="sudo "
 alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
@@ -13,7 +14,7 @@ export TERM=screen-256color
 # Set CLICOLOR if you want Ansi Colors in iTerm2
 export CLICOLOR=1
 # export LSCOLORS=cxfxcxdxbxexexabagacad
-export LS_COLORS='di=0;35'; # 35 purple, 36 cyan, 32 green
+export LS_COLORS='di=0;36'; # 35 purple, 36 cyan, 32 green
 
 # Colored promt info
 # http://www.ibm.com/developerworks/linux/library/l-tip-prompt/
