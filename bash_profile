@@ -18,7 +18,7 @@ export LS_COLORS='di=0;36'; # 35 purple, 36 cyan, 32 green
 
 # Colored promt info
 # http://www.ibm.com/developerworks/linux/library/l-tip-prompt/
-NO_COLOR="\[\033[0m\]"      #Transparent - don't change
+NO_COLOR="\[\033[0m\]"      #normal text - don't change
 COLOR1="\[\e[00;32m\]"
 COLOR2="\[\e[00;36m\]"
 export PS1="${COLOR1}\u${NO_COLOR}:${COLOR2}\W${NO_COLOR}\$ "

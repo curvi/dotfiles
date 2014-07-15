@@ -16,22 +16,19 @@ call vundle#begin()
   Plugin 'bling/vim-airline'
   Bundle 'Lokaltog/vim-easymotion'
   Plugin 'ctrlp.vim'
-" not mandatory
+  " snipmate
   Bundle "MarcWeber/vim-addon-mw-utils"
   Bundle "tomtom/tlib_vim"
   Bundle "garbas/vim-snipmate"
   Bundle "snipmate-snippets"
+  " snipmate end
   Bundle "sudar/vim-arduino-syntax"
   Bundle 'matchit.zip'
   Bundle 'rainbow_parentheses.vim'
   Bundle 'jrestrepo/matlab'
   Bundle 'gibiansky/vim-latex-objects'
 " other stuff
-  " Plugin 'The-NERD-Commenter'
   " Bundle 'JuliaLang/julia-vim'
-" colors
-  " Bundle 'altercation/vim-colors-solarized'
-  " Bundle 'morhetz/gruvbox'
 call vundle#end()
 filetype plugin indent on
 " filetype plugin on
