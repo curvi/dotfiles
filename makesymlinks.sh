@@ -11,7 +11,7 @@
 
 dir=~/Documents/dotfiles                    # dotfiles directory
 olddir=~/Documents/dotfiles_old             # old dotfiles backup directory
-files="bash_profile vimrc vim tmux tmux.conf gitconfig gitignore_global"
+files="bashrc bash_profile vimrc vim tmux tmux.conf gitconfig gitignore_global"
 
 ##########
 
