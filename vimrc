@@ -73,7 +73,6 @@ set runtimepath^=~/.vim,/Applications/MacVim.app/Contents/Resources/vim/runtime,
 set encoding=utf-8
 " set spell
 set spelllang=en_gb
-
 set nobackup            " centralize backups, swapfiles and undo history
 set noswapfile
 set nomodeline          " dont scan file for commands for security
@@ -102,7 +101,6 @@ colorscheme molokai_flat
 " colorscheme solarized
 
 
-
 " TEXT/NUMBERS
 """""""""""""""
 set wrap
@@ -110,7 +108,6 @@ set textwidth=79
 set colorcolumn=85
 set number              " enable line numbers
 set relativenumber
-
 "corresponding filetypes are in ~/.vim/ftdetect
 syntax on               " enable syntax highlighting
 set tabstop=2           " a tab is two spaces
