@@ -36,7 +36,6 @@ filetype plugin indent on
 
 " PLUGIN SETTINGS
 """"""""""""""""""
-" autocmd BufEnter *.m    compiler mlint
 " ctrlp
 let g:ctrlp_working_path_mode = 'c'
 " easy motion
@@ -49,6 +48,7 @@ nnoremap <leader>s <Plug>(easymotion-s2)
 " airline font
 " https://github.com/antindexer/monaco
 let g:airline_powerline_fonts=1
+let g:airline_theme='tomorrow'
 
 " RainbowParentheses
 let g:rbpt_colorpairs = [
