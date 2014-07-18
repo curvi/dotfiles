@@ -17,3 +17,5 @@ brew install tmux
 tmux clipboard ([exited] on startup)
 http://robots.thoughtbot.com/how-to-copy-and-paste-with-tmux-on-mac-os-x
 brew install reattach-to-user-namespace
+
+see all git aliases with git alias
