@@ -11,7 +11,7 @@
   br = branch
   s  = status
   lm  = log --graph --pretty=format:'%C(cyan)%h%Creset %s %C(green)| %ar%Creset' --name-status -3
-  ls = log --graph --pretty=format:'%C(cyan)%h%Creset %s %C(green)(%ar)%Creset' --since=1.week
+  ls = log --graph --pretty=format:'%C(cyan)%h%Creset | %s %C(green)(%ar)%Creset' --since=1.week
 	unstage = reset HEAD --
   this = !git init && git add . && git commit -m \"initial commit\"
   rmdeleted  = !git ls-files -z --deleted | xargs -0 git rm
