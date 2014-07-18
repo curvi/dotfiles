@@ -5,13 +5,18 @@
 	editor = vim
 	excludesfile = ~/.gitignore_global
 [alias]
+  alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\ => \\2/' | sort
   ci = commit
   co = checkout
   br = branch
   s  = status
+  lm  = log --graph --pretty=format:'%C(cyan)%h%Creset %s %C(green)| %ar%Creset' --name-status -3
+  ls = log --graph --pretty=format:'%C(cyan)%h%Creset %s %C(green)(%ar)%Creset' --since=1.week
 	unstage = reset HEAD --
+  this = !git init && git add . && git commit -m \"initial commit\"
+  rmdeleted  = !git ls-files -z --deleted | xargs -0 git rm
+  ignore=!([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
+  search = "!f(){ git show :/${1}; };f"
 	noup  = log --graph --pretty=format:'%h - %s | %ar' --all @{upstream}^..
-  list  = log --graph --pretty=format:'%C(cyan)%h%Creset %s %C(green)| %ar%Creset' --name-status -3
-  list2 = log --graph --pretty=format:'%C(cyan)%h%Creset %s %C(green)(%ar)%Creset' --since=1.week
 [color]
   ui = true
