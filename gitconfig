@@ -19,5 +19,6 @@
   ignore=!([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
   search = "!f(){ git show :/${1}; };f"
 	noup  = log --graph --pretty=format:'%h - %s | %ar' --all @{upstream}^..
+	pushall = "!f(){ git push ${1} ${2} && git push ${1} --tags; };f"
 [color]
   ui = true
