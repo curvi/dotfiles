@@ -10,8 +10,8 @@
   co = checkout
   br = branch
   s  = status
-  lm  = log --graph --pretty=format:'%C(cyan)%h%Creset %s %C(green)| %ar%Creset' --name-status -3
   ls = log --all --graph --pretty=format:'%C(cyan)%h%Creset | %s %Cred%d %C(green)(%ar)%Creset' --since=1.week
+  lg  = log --graph --pretty=format:'%C(cyan)%h%Creset %s %C(green)| %ar%Creset' --name-status -3
 	unstage = reset HEAD --
   filelog = log -u
   this = !git init && git add . && git commit -m \"initial commit\"
