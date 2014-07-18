@@ -2,7 +2,7 @@
   name = niccnacc
   email = michael@schwegel.at
 [core]
-	editor = vim
+	editor = /Applications/MacVim.app/Contents/MacOS/Vim
 	excludesfile = ~/.gitignore_global
 [alias]
   alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\ => \\2/' | sort
