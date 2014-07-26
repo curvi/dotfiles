@@ -24,7 +24,7 @@ call vundle#begin()
   " snipmate end
   Bundle "sudar/vim-arduino-syntax"
   Bundle 'matchit.zip'
-  Bundle 'rainbow_parentheses.vim'
+  " Bundle 'rainbow_parentheses.vim'
   Bundle 'jrestrepo/matlab'
   Bundle 'gibiansky/vim-latex-objects'
 " other stuff
