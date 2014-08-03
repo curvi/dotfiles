@@ -10,7 +10,7 @@
   co = checkout
   br = branch
   s  = status
-  ls = log --all --graph --pretty=format:'%C(cyan)%h%Creset | %s %Cred%d %C(green)(%ar)%Creset' --since=1.week
+  ls = log --all --graph --pretty=format:'%C(cyan)%h%Creset | %s %Cred%d %C(green)(%ar)%Creset' -5
   lg  = log --graph --pretty=format:'%C(cyan)%h%Creset %s %C(green)| %ar%Creset' --name-status -3
 	unstage = reset HEAD --
   filelog = log -u
