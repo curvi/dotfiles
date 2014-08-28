@@ -17,13 +17,13 @@ call vundle#begin()
   Bundle 'Lokaltog/vim-easymotion'
   Plugin 'ctrlp.vim'
   " snipmate
-  Bundle "MarcWeber/vim-addon-mw-utils"
-  Bundle "tomtom/tlib_vim"
-  Bundle "garbas/vim-snipmate"
-  Bundle "snipmate-snippets"
+  " Bundle 'MarcWeber/vim-addon-mw-utils'
+  " Bundle 'tomtom/tlib_vim'
+  " Bundle 'garbas/vim-snipmate'
+  " Bundle 'snipmate-snippets'
   " snipmate end
-  Bundle "sudar/vim-arduino-syntax"
-  Bundle 'matchit.zip'
+  Bundle 'sudar/vim-arduino-syntax'
+  " Bundle 'matchit.zip'
   " Bundle 'rainbow_parentheses.vim'
   Bundle 'jrestrepo/matlab'
   Bundle 'gibiansky/vim-latex-objects'
