@@ -1,4 +1,4 @@
-export PATH=$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 export PATH=$PATH:/usr/texbin
 export PATH=$PATH:/Applications/MATLAB_R2012b.app/bin
 export PATH=$PATH:/Applications/MATLAB_R2012b.app/bin/maci64

@@ -1,5 +1,3 @@
-" include new filetypes-endings here
-au BufNewFile,BufRead *.ino set filetype=arduino
 
 " Add snipmate snippets for different filetypes
 let g:snipMate = {}

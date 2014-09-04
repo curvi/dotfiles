@@ -14,57 +14,25 @@ call vundle#begin()
   Plugin 'gmarik/Vundle.vim'
   Bundle 'christoomey/vim-tmux-navigator'
   Plugin 'bling/vim-airline'
-  Bundle 'Lokaltog/vim-easymotion'
   Plugin 'ctrlp.vim'
+  Bundle 'AutoTag'
   " snipmate
-  " Bundle 'MarcWeber/vim-addon-mw-utils'
-  " Bundle 'tomtom/tlib_vim'
-  " Bundle 'garbas/vim-snipmate'
-  " Bundle 'snipmate-snippets'
+  Bundle 'MarcWeber/vim-addon-mw-utils'
+  Bundle 'tomtom/tlib_vim'
+  Bundle 'garbas/vim-snipmate'
+  Bundle 'snipmate-snippets'
   " snipmate end
   Bundle 'sudar/vim-arduino-syntax'
-  " Bundle 'matchit.zip'
-  " Bundle 'rainbow_parentheses.vim'
+  Bundle 'matchit.zip'
+  Bundle 'rainbow_parentheses.vim'
   Bundle 'jrestrepo/matlab'
-  Bundle 'gibiansky/vim-latex-objects'
+  " Bundle 'gibiansky/vim-latex-objects'
+  " Bundle 'Lokaltog/vim-easymotion'
 " other stuff
   " Bundle 'JuliaLang/julia-vim'
 call vundle#end()
 filetype plugin indent on
 " filetype plugin on
-
-
-" PLUGIN SETTINGS
-""""""""""""""""""
-" ctrlp
-let g:ctrlp_working_path_mode = 'c'
-" easy motion
-" all these work with <leader> _
-let g:EasyMotion_smartcase = 1
-nnoremap <leader>s <Plug>(easymotion-s2)
-" map j <Plug>(easymotion-j)
-" map k <Plug>(easymotion-k)
-
-" airline font
-" https://github.com/antindexer/monaco
-let g:airline_powerline_fonts=1
-let g:airline_theme='tomorrow'
-
-" RainbowParentheses
-let g:rbpt_colorpairs = [
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
-let g:rbpt_max = 16
-nnoremap <leader>h :RainbowParenthesesToggle<cr>
 
 
 " GENERAL
@@ -73,6 +41,7 @@ set runtimepath^=~/.vim,/Applications/MacVim.app/Contents/Resources/vim/runtime,
 set encoding=utf-8
 " set spell
 set spelllang=en_gb
+nnoremap <unique> <leader>spell :setlocal spell! spelllang=en_gb<cr>
 set nobackup            " centralize backups, swapfiles and undo history
 set noswapfile
 set nomodeline          " dont scan file for commands for security
@@ -99,6 +68,49 @@ colorscheme molokai_flat
 " set background=dark
 " let g:solarized_termcolors = 256  " New line!!
 " colorscheme solarized
+
+
+" LEADER
+"""""""""""
+let mapleader = ","
+inoremap jj <ESC>
+nnoremap ; :
+nnoremap : ;
+" save on loss of focus
+:au FocusLost * :wa
+
+
+" PLUGIN SETTINGS
+""""""""""""""""""
+" ctrlp
+let g:ctrlp_working_path_mode = 'c'
+" easy motion
+" all these work with <leader> _
+" let g:EasyMotion_smartcase = 1
+" nnoremap <leader>s <Plug>(easymotion-s2)
+" map j <Plug>(easymotion-j)
+" map k <Plug>(easymotion-k)
+
+" airline font
+" https://github.com/antindexer/monaco
+let g:airline_powerline_fonts=1
+let g:airline_theme='tomorrow'
+
+" RainbowParentheses
+let g:rbpt_colorpairs = [
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+let g:rbpt_max = 16
+nnoremap <leader>h :RainbowParenthesesToggle<cr>
 
 
 " TEXT/NUMBERS
@@ -140,16 +152,6 @@ set undolevels=1000
 set nostartofline       " don’t set cursor to start of line when moving around.
 
 
-" LEADER
-"""""""""""
-let mapleader = ","
-inoremap jj <ESC>
-nnoremap ; :
-nnoremap : ;
-" save on loss of focus
-:au FocusLost * :wa
-
-
 " SEARCHING
 """""""""""""
 set gdefault            " add the g flag to search/replace by default
@@ -182,16 +184,16 @@ function! ScreenMovement(movement)
      return a:movement
   endif
 endfunction
-onoremap <silent> <expr> j ScreenMovement("j")
-onoremap <silent> <expr> k ScreenMovement("k")
-onoremap <silent> <expr> 0 ScreenMovement("0")
-onoremap <silent> <expr> ^ ScreenMovement("^")
-onoremap <silent> <expr> $ ScreenMovement("$")
 nnoremap <silent> <expr> j ScreenMovement("j")
 nnoremap <silent> <expr> k ScreenMovement("k")
 nnoremap <silent> <expr> 0 ScreenMovement("0")
-nnoremap <silent> <expr> ^ ScreenMovement("^")
 nnoremap <silent> <expr> $ ScreenMovement("$")
+" nnoremap <silent> <expr> ^ ScreenMovement("^")
+" onoremap <silent> <expr> j ScreenMovement("j")
+" onoremap <silent> <expr> k ScreenMovement("k")
+" onoremap <silent> <expr> 0 ScreenMovement("0")
+" onoremap <silent> <expr> ^ ScreenMovement("^")
+" onoremap <silent> <expr> $ ScreenMovement("$")
 
 
 " YANK/PASTE
@@ -228,6 +230,15 @@ nnoremap <silent><C-l> :TmuxNavigateRight<cr>
 """""""""""""""""""
 "Capitalize the just written word
 inoremap <C-u> <Esc>viwUea
+
+
+" C tags
+"""""""""""""""""""
+set tags=./tags;/
+" open tag in vertial split
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+nnoremap ]t :tnext<cr>
+nnoremap [t :tprev<cr>
 
 
 " COMMENTS
