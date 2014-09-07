@@ -4,6 +4,18 @@
 [core]
 	editor = /Applications/MacVim.app/Contents/MacOS/Vim
 	excludesfile = ~/.gitignore_global
+[remote "usb"]
+  url = file:///Volumes/Meer/giteria/flip.git
+  fetch = +refs/heads/*:refs/remotes/usb/*
+  fetch = +refs/tags/*:refs/tags/*
+  push  = +refs/heads/*:refs/heads/*
+  push  = +refs/tags/*:refs/tags/*
+[remote "usb"]
+  url = file:///Volumes/Meer/giteria/Arduino.git
+  fetch = +refs/heads/*:refs/remotes/usb/*
+  fetch = +refs/tags/*:refs/tags/*
+  push  = +refs/heads/*:refs/heads/*
+  push  = +refs/tags/*:refs/tags/*
 [alias]
   alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\ => \\2/' | sort
   ci = commit
@@ -12,13 +24,15 @@
   s  = status
   l = log --all --graph --pretty=format:'%C(cyan)%h%Creset | %s %Cred%d %C(green)(%ar)%Creset' -5
   lg  = log --graph --pretty=format:'%C(cyan)%h%Creset %s %C(green)| %ar%Creset' --name-status -3
-	unstage = reset HEAD --
+  unstage = reset HEAD --
   filelog = log -u
   this = !git init && git add . && git commit -m \"initial commit\"
   rmdeleted  = !git ls-files -z --deleted | xargs -0 git rm
   ignore=!([ ! -e .gitignore ] && touch .gitignore) | echo $1 >>.gitignore
   search = "!f(){ git show :/${1}; };f"
-	noup  = log --graph --pretty=format:'%h - %s | %ar' --all @{upstream}^..
-	pushall = "!f(){ git push ${1} ${2} && git push ${1} --tags; };f"
+  noup  = log --graph --pretty=format:'%h - %s | %ar' --all @{upstream}^..
+  pushall = "!f(){ git push ${1} ${2} && git push ${1} --tags; };f"
 [color]
   ui = true
+[push]
+	default = matching
