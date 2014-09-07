@@ -117,7 +117,7 @@ nnoremap <leader>h :RainbowParenthesesToggle<cr>
 """""""""""""""
 set wrap
 set textwidth=79
-set colorcolumn=85
+set colorcolumn=        " 85
 set number              " enable line numbers
 set relativenumber
 "corresponding filetypes are in ~/.vim/ftdetect
