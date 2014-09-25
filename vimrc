@@ -87,7 +87,7 @@ let g:ctrlp_working_path_mode = 'c'
 " easy motion
 " all these work with <leader> _
 " let g:EasyMotion_smartcase = 1
-" nnoremap <leader>s <Plug>(easymotion-s2)
+" nnoremap <leader>easys2 <Plug>(easymotion-s2)
 " map j <Plug>(easymotion-j)
 " map k <Plug>(easymotion-k)
 

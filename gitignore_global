@@ -9,3 +9,12 @@ ehthumbs.db
 Thumbs.db
 # other generated files
 tags
+# latex auxillary files
+*.aux
+*.bbl
+*.blg
+*.dvi
+*.log
+*.out
+*.synctex.gz
+*.toc
