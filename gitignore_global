@@ -18,3 +18,4 @@ tags
 *.out
 *.synctex.gz
 *.toc
+*.tex.bak
