@@ -27,3 +27,8 @@ snippet fig
 	xlabel('time [s]');
 	ylabel('$2');
 	legend('dat','Location','best');
+
+snippet func
+	function [${1:output}] = ${3:`tolower(Filename('$1', 'untitled'))`} (${2:input})
+		${3}
+	end

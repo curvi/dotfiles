@@ -1,8 +1,8 @@
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 export PATH=$PATH:/usr/texbin:~/.scripts:
-export PATH=$PATH:/Applications/MATLAB_R2012b.app/bin
-export PATH=$PATH:/Applications/MATLAB_R2012b.app/bin/maci64
-export DYLD_FALLBACK_LIBRARY_PATH=$DYLD_FALLBACK_LIBRARY_PATH:/Applications/MATLAB_R2012b.app/bin/maci64
+export PATH=$PATH:/Applications/MATLAB_R2014b.app/bin
+export PATH=$PATH:/Applications/MATLAB_R2014b.app/bin/maci64
+export DYLD_FALLBACK_LIBRARY_PATH=$DYLD_FALLBACK_LIBRARY_PATH:/Applications/MATLAB_R2014b.app/bin/maci64
 
 
 alias sudo="sudo "
