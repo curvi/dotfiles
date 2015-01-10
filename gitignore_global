@@ -1,3 +1,11 @@
+# Local files/folders
+####################
+programs/Isetta/
+libraries/IMU/
+libraries/CAN_BUS_Shield/
+libraries/CANopen/
+
+
 # OS generated files
 ####################
 .DS_Store

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+main() {
+pathtorepo='/Users/mike/Documents/Programmieren/Arduino/programs/Isetta'
+reponame=${pathtorepo##*/}
+pathtoremote='/Volumes/GITERIA'
+
+cd $pathtoremote
+git clone --mirror $pathtorepo'/' $reponame'.git/'
+cd $pathtorepo
+git remote add usb file://$pathtoremote/$reponame/
+git fetch usb
+git branch --set-upstream-to usb/master
+}
+
+main $@

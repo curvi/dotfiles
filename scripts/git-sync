@@ -1,0 +1,67 @@
+#!/bin/bash
+
+main() {
+
+  # remote='file:///Volumes/GITERIA/'$name'/'
+  remote='usb'
+
+  # Repositories to maintain
+  repos[0]=~/Documents/Programmieren/Arduino
+  repos[1]=${repos[0]}/libraries/IMU
+  repos[2]=${repos[0]}/programs/Isetta
+  repos[3]=${repos[0]}/libraries/CANopen
+  repos[4]=~/Documents/Copter
+
+  for repo in ${repos[@]}; do
+    # echo $repo
+    git_update $repo
+  done
+}
+
+function git_check {
+  # @ current branch, @{u} is remote upstream branch
+  # rev-parse gives the last commit hash
+  LOCAL_HASH=$(git rev-parse @)
+  REMOTE_HASH=$(git rev-parse @{u})
+  BASE_HASH=$(git merge-base @ @{u})
+  # echos are used as return
+  if [ $LOCAL_HASH = $REMOTE_HASH ]; then
+    echo "done"
+  elif [ $LOCAL_HASH = $BASE_HASH ]; then
+    echo "pull"
+  elif [ $REMOTE_HASH = $BASE_HASH ]; then
+    echo "push"
+  else
+    echo "diverged"
+  fi
+}
+
+function git_update {
+  cd $1
+  name=${PWD##*/}
+  echo 'Repository: '$name
+  difference=$(git_check)
+  dirty=$(git status --porcelain 2>/dev/null| grep "." | wc -l)
+  echo debugs: $difference $dirty
+  if [ $dirty = "0" ]; then
+    if [ $difference = "done" ]; then
+      echo $name Up-to-date
+    elif [ $difference = "push" ]; then
+      echo pushing $name
+      git push $remote
+    elif [ $difference = "pull" ]; then
+      echo pulling $name
+      # git pull $remote
+    else
+      echo bases have diverged
+      return
+    fi
+    echo Repository synced
+  else
+    echo Please commit changes to $name
+  fi
+  echo ' '
+}
+
+
+main $@
