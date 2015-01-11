@@ -3,7 +3,8 @@
 main() {
 
   # remote='file:///Volumes/GITERIA/'$name'/'
-  remote='usb'
+  # remote='usb'
+  remote=''
 
   # Repositories to maintain
   repos[0]=~/Documents/Programmieren/Arduino
@@ -37,12 +38,12 @@ function git_check {
 }
 
 function git_update {
-  cd $1
-  name=${PWD##*/}
+  name=${1##*/}
   echo 'Repository: '$name
+  cd $1
   difference=$(git_check)
   dirty=$(git status --porcelain 2>/dev/null| grep "." | wc -l)
-  echo debugs: $difference $dirty
+  # echo debug: $difference $dirty
   if [ $dirty = "0" ]; then
     if [ $difference = "done" ]; then
       echo $name Up-to-date
@@ -51,14 +52,14 @@ function git_update {
       git push $remote
     elif [ $difference = "pull" ]; then
       echo pulling $name
-      # git pull $remote
+      git pull $remote
     else
       echo bases have diverged
       return
     fi
     echo Repository synced
   else
-    echo Please commit changes to $name
+    echo Please commit $dirty changes to $name
   fi
   echo ' '
 }

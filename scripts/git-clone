@@ -1,7 +1,7 @@
 #!/bin/bash
 
 main() {
-pathtorepo='/Users/mike/Documents/Programmieren/Arduino/programs/Isetta'
+pathtorepo='/Users/mike/Documents/Copter'
 reponame=${pathtorepo##*/}
 pathtoremote='/Volumes/GITERIA'
 
