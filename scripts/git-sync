@@ -38,6 +38,7 @@ function git_check {
 }
 
 function git_update {
+  # last subfolder
   name=${1##*/}
   echo 'Repository: '$name
   cd $1
