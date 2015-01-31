@@ -13,6 +13,7 @@
 [alias]
   alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\ => \\2/' | sort
   ci = commit
+  ciam = commit --all --message
   aa = add -A :/
   co = checkout
   br = branch
