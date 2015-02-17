@@ -16,3 +16,29 @@ snippet i3
 	int32_t ${1}
 snippet u3
 	uint32_t ${1}
+snippet mex
+	#include "mex.h"
+
+	// numbers of and pointers to right-hand side and left-hand side
+
+	void mexFunction (int nlhs, mxArray *plhs[],
+					  int nrhs, const mxArray *prhs[])
+	{
+	  double a = mxGetScalar(prhs[0]);
+	  printf("a: %f \n",a);
+	  plhs[0] = mxCreateDoubleMatrix(1,1,mxREAL);
+	  double * lhs = mxGetPr(plhs[0]);
+	  *lhs = a;
+	  ${1:// code}
+	}
+snippet mexSave
+	  if (nrhs != 2) {
+	    mexErrMsgIdAndTxt("mik:myfun","2 Inputs required.");
+	  }
+	  if (!mxIsDouble(prhs[0])) {
+	    mexErrMsgIdAndTxt("mik:myfun","Argument must be Double");
+	  }
+	  if (mxGetNumberOfElements(prhs[0]) != 1) {
+	    mexErrMsgIdAndTxt("mik:myfun","Input must be 1 Elements");
+	  }
+

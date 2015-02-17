@@ -2,12 +2,12 @@
 
 main() {
 
-  # remote='file:///Volumes/GITERIA/'$name'/'
+  remote='file:///Volumes/GITERIA/REPOS/'$name'/'
   # remote='usb'
-  remote=''
+  # remote=''
 
   # Repositories to maintain
-  repos[0]=~/Documents/Programmieren/Arduino
+  repos[0]=~/Code/Arduino
   repos[1]=${repos[0]}/libraries/IMU
   repos[2]=${repos[0]}/programs/Isetta
   repos[3]=${repos[0]}/libraries/CANopen
