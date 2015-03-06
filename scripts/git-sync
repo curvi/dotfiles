@@ -18,7 +18,7 @@ main() {
 function git_update {
   # last subfolder
   name=${1##*/}
-  remote='file:///Volumes/GITERIA/REPOS/'$name'/'
+  remote='file:///Volumes/GITERIA/repos/'$name'/'
   echo 'Repository: '$name
   cd $1
   difference=$(git_check)
