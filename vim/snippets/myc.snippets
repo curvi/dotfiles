@@ -18,11 +18,15 @@ snippet u3
 	uint32_t ${1}
 snippet mex
 	#include "mex.h"
+	#include <time.h>
+	#include <math.h>
+	#include "`tolower(Filename('$1', 'untitled'))`.h"
 
-	// numbers of and pointers to right-hand side and left-hand side
-
+	// matlab call with:
+	// [traject,flag,tree] = rrt_c (start,goal,params);
+	// =========================================
 	void mexFunction (int nlhs, mxArray *plhs[],
-					  int nrhs, const mxArray *prhs[])
+	                  int nrhs, const mxArray *prhs[])
 	{
 	  double a = mxGetScalar(prhs[0]);
 	  printf("a: %f \n",a);

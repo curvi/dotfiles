@@ -116,7 +116,11 @@ nnoremap <leader>h :RainbowParenthesesToggle<cr>
 " TEXT/NUMBERS
 """""""""""""""
 set wrap
-set textwidth=79
+set linebreak           " only break at breakat characters
+set nolist              " list disables linebreak
+set formatoptions+=l    " no break while type
+set textwidth=72
+autocmd FileType tex,plaintex setlocal formatoptions-=t
 set colorcolumn=        " 85
 set number              " enable line numbers
 set relativenumber
@@ -247,7 +251,7 @@ autocmd FileType c,cpp,java      let b:comment_leader = '//'
 autocmd FileType arduino         let b:comment_leader = '//'
 autocmd FileType sh,ruby,python  let b:comment_leader = '#'
 autocmd FileType conf,fstab      let b:comment_leader = '#'
-autocmd FileType matlab,tex      let b:comment_leader = '%'
+autocmd FileType matlab,plaintex      let b:comment_leader = '%'
 autocmd FileType vim             let b:comment_leader = '"'
 autocmd FileType * exe EscapeCommentLeader()
 

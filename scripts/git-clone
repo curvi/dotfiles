@@ -1,9 +1,9 @@
 #!/bin/bash
 
 main() {
-pathtorepo='/Users/mike/Documents/Copter'
+pathtorepo='/Users/mike/Documents/Studium/Master/Diplom'
 reponame=${pathtorepo##*/}
-pathtoremote='/Volumes/GITERIA'
+pathtoremote='/Volumes/GITERIA/REPOS/'
 
 cd $pathtoremote
 git clone --mirror $pathtorepo'/' $reponame'.git/'

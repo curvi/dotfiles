@@ -1,17 +1,13 @@
 #!/bin/bash
 
 main() {
-
-  remote='file:///Volumes/GITERIA/REPOS/'$name'/'
-  # remote='usb'
-  # remote=''
-
   # Repositories to maintain
   repos[0]=~/Code/Arduino
   repos[1]=${repos[0]}/libraries/IMU
   repos[2]=${repos[0]}/programs/Isetta
   repos[3]=${repos[0]}/libraries/CANopen
   repos[4]=~/Documents/Copter
+  repos[5]=~/Documents/Studium/Master/Diplom
 
   for repo in ${repos[@]}; do
     # echo $repo
@@ -19,27 +15,10 @@ main() {
   done
 }
 
-function git_check {
-  # @ current branch, @{u} is remote upstream branch
-  # rev-parse gives the last commit hash
-  LOCAL_HASH=$(git rev-parse @)
-  REMOTE_HASH=$(git rev-parse @{u})
-  BASE_HASH=$(git merge-base @ @{u})
-  # echos are used as return
-  if [ $LOCAL_HASH = $REMOTE_HASH ]; then
-    echo "done"
-  elif [ $LOCAL_HASH = $BASE_HASH ]; then
-    echo "pull"
-  elif [ $REMOTE_HASH = $BASE_HASH ]; then
-    echo "push"
-  else
-    echo "diverged"
-  fi
-}
-
 function git_update {
   # last subfolder
   name=${1##*/}
+  remote='file:///Volumes/GITERIA/REPOS/'$name'/'
   echo 'Repository: '$name
   cd $1
   difference=$(git_check)
@@ -65,5 +44,24 @@ function git_update {
   echo ' '
 }
 
+function git_check {
+  # @ current branch, @{u} is remote upstream branch
+  # rev-parse gives the last commit hash
+  LOCAL_HASH=$(git rev-parse @)
+  REMOTE_HASH=$(git rev-parse @{u})
+  BASE_HASH=$(git merge-base @ @{u})
+  # echos are used as return
+  if [ $LOCAL_HASH = $REMOTE_HASH ]; then
+    echo "done"
+  elif [ $LOCAL_HASH = $BASE_HASH ]; then
+    echo "pull"
+  elif [ $REMOTE_HASH = $BASE_HASH ]; then
+    echo "push"
+  else
+    echo "diverged"
+  fi
+}
+
 
 main $@
+
