@@ -34,6 +34,7 @@ call vundle#end()
 filetype plugin indent on
 " filetype plugin on
 
+" verbose map [mapping] = find where and how something is defined
 
 " GENERAL
 """""""""""
@@ -55,10 +56,12 @@ if &term =~ '256color'
   set t_ut=
 endif
 
+" vimcolors.com
 " find names of elements: ':hi' or http://www.vimtax.com/
 " edit schemes graphically http://bytefluent.com/vivify/
 " get matching colors: http://colorschemedesigner.com/
 colorscheme molokai_flat
+" https://github.com/vim-scripts/BusyBee
 " let g:molokai_original = 1
 " let g:rehash256 = 1
 " colorscheme gruvbox
@@ -68,6 +71,10 @@ colorscheme molokai_flat
 " set background=dark
 " let g:solarized_termcolors = 256  " New line!!
 " colorscheme solarized
+
+" recolor the increment search for s///c
+highlight IncSearch ctermbg=7 ctermfg=1
+
 
 
 " LEADER
@@ -215,7 +222,7 @@ nnoremap D d$
 nnoremap Y y$
 
 " leader+w = delete trailing whitespaces
-nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<cr>
 " open preferences with lead+pref
 nnoremap <leader>pref <C-w>v<C-l>:e $MYVIMRC<cr>
 
@@ -227,7 +234,8 @@ set splitright
 " open vertical split with leader+w
 nnoremap <leader>w <C-w>v<C-w>l
 " move between windows with C-hjkl
-nnoremap <silent><C-l> :TmuxNavigateRight<cr>
+" let g:tmux_navigator_no_mappings = 1
+" nnoremap <silent><C-h> :TmuxNavigateLeft<cr>
 
 
 " Insert Mode Keys

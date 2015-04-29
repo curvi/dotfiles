@@ -1,5 +1,5 @@
-export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
-export PATH=$PATH:/usr/local/lib/
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
+export PATH=/usr/local/lib:$PATH
 export PATH=$PATH:/usr/texbin:~/.scripts:
 export PATH=$PATH:/Applications/MATLAB_R2014b.app/bin
 export PATH=$PATH:/Applications/MATLAB_R2014b.app/bin/maci64
@@ -19,6 +19,9 @@ export TERM=screen-256color
 export CLICOLOR=1
 # export LSCOLORS=cxfxcxdxbxexexabagacad
 export LS_COLORS='di=0;36'; # 35 purple, 36 cyan, 32 green
+# make <C-h> work again: https://github.com/christoomey/vim-tmux-navigator/issues/61
+infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
+tic $TERM.ti
 
 # Colored promt info
 # http://www.ibm.com/developerworks/linux/library/l-tip-prompt/
