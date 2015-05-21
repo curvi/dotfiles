@@ -42,7 +42,7 @@ set runtimepath^=~/.vim,/Applications/MacVim.app/Contents/Resources/vim/runtime,
 set encoding=utf-8
 " set spell
 set spelllang=en_gb
-nnoremap <unique> <leader>spell :setlocal spell! spelllang=en_gb<cr>
+nnoremap <leader>spell :setlocal spell! spelllang=en_gb<cr>
 set nobackup            " centralize backups, swapfiles and undo history
 set noswapfile
 set nomodeline          " dont scan file for commands for security
@@ -71,10 +71,6 @@ colorscheme molokai_flat
 " set background=dark
 " let g:solarized_termcolors = 256  " New line!!
 " colorscheme solarized
-
-" recolor the increment search for s///c
-highlight IncSearch ctermbg=7 ctermfg=1
-
 
 
 " LEADER
@@ -125,7 +121,7 @@ nnoremap <leader>h :RainbowParenthesesToggle<cr>
 set wrap
 set linebreak           " only break at breakat characters
 set nolist              " list disables linebreak
-set formatoptions+=l    " no break while type
+set formatoptions-=t    " no break while type
 set textwidth=72
 autocmd FileType tex,plaintex setlocal formatoptions-=t
 set colorcolumn=        " 85

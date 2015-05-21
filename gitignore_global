@@ -27,3 +27,5 @@ tags
 *.synctex.gz
 *.toc
 *.tex.bak
+# matlab compiled files
+*.mexmaci64
