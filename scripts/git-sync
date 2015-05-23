@@ -21,6 +21,7 @@ function git_update {
   remote='file:///Volumes/GITERIA/repos/'$name'/'
   echo 'Repository: '$name
   cd $1
+  git fetch
   difference=$(git_check)
   dirty=$(git status --porcelain 2>/dev/null| grep "." | wc -l)
   # echo debug: $difference $dirty
@@ -41,6 +42,7 @@ function git_update {
   else
     echo Please commit $dirty changes to $name
   fi
+  git fetch
   echo ' '
 }
 

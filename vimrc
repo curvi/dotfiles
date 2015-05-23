@@ -257,6 +257,7 @@ autocmd FileType sh,ruby,python  let b:comment_leader = '#'
 autocmd FileType conf,fstab      let b:comment_leader = '#'
 autocmd FileType matlab,plaintex      let b:comment_leader = '%'
 autocmd FileType vim             let b:comment_leader = '"'
+autocmd FileType html            let b:comment_leader = '<!--  -->'
 autocmd FileType * exe EscapeCommentLeader()
 
 function! EscapeCommentLeader()
