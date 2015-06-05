@@ -5,7 +5,6 @@ main() {
   repos[0]=~/Code/Arduino
   repos[1]=${repos[0]}/libraries/IMU
   repos[2]=${repos[0]}/programs/Isetta
-  repos[3]=${repos[0]}/libraries/CANopen
   repos[4]=~/Documents/Copter
   repos[5]=~/Documents/Studium/Master/Diplom
 
