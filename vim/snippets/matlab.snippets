@@ -20,8 +20,11 @@ snippet try
 		${2}
 		rethrow(exception);
 	end
+
 snippet fig
-	figure(${1:1})
+	figure(${1:numfig})
+	numfig = numfig + 1;
+	clf; hold on;
 	plot(${2:time},${3:data});
 	axis([0, max($2), min($3), max($3)]);
 	xlabel('time [s]');
@@ -29,6 +32,10 @@ snippet fig
 	legend('dat','Location','best');
 
 snippet func
-	function [${1:output}] = ${3:`tolower(Filename('$1', 'untitled'))`} (${2:input})
-		${3}
+	function [${1:output}] = ${2:`tolower(Filename('$1', 'untitled'))`} (${3:input})
+		${4}
 	end
+
+snippet nf
+	global numfig;
+	numfig = 1;

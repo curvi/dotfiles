@@ -4,8 +4,11 @@ export PATH=$PATH:/usr/texbin:~/.scripts:
 export PATH=$PATH:/Applications/MATLAB_R2014b.app/bin
 export PATH=$PATH:/Applications/MATLAB_R2014b.app/bin/maci64
 # export DYLD_FALLBACK_LIBRARY_PATH=$DYLD_FALLBACK_LIBRARY_PATH:/Applications/MATLAB_R2014b.app/bin/maci64
+export PATH=$PATH:~/Code/development/gcc-arm-none-eabi-4_8-2014q3/bin
+
 # for drake matlab distro
 export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/opt/X11/lib/pkgconfig
+
 
 
 alias sudo="sudo "
