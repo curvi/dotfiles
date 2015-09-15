@@ -1,44 +1,47 @@
 " PLUGINS
 """""""""""
 set nocompatible              " be iMproved, required
-filetype off                  " required
 
-" make the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-call vundle#begin()
-" :PluginInstall(!)    - install (update) plugins
-" :PluginSearch(!) foo - search (or refresh cache first) for foo
-" :PluginClean(!)
-  Plugin 'gmarik/Vundle.vim'
-  Bundle 'christoomey/vim-tmux-navigator'
-  Plugin 'bling/vim-airline'
-  Plugin 'ctrlp.vim'
-  Bundle 'AutoTag'
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
+endif
+
+call plug#begin('~/.vim/bundle')
+" :PlugInstall(!)    - install (update) plugins
+" :PlugUpdate
+" :PlugSearch(!) foo - search (or refresh cache first) for foo
+" :PlugClean(!)
+  Plug 'christoomey/vim-tmux-navigator'
+  Plug 'bling/vim-airline'
+  Plug 'ctrlp.vim'
+  Plug 'AutoTag'
   " snipmate
-  Bundle 'MarcWeber/vim-addon-mw-utils'
-  Bundle 'tomtom/tlib_vim'
-  Bundle 'garbas/vim-snipmate'
-  Bundle 'snipmate-snippets'
+  Plug 'MarcWeber/vim-addon-mw-utils'
+  Plug 'tomtom/tlib_vim'
+  Plug 'garbas/vim-snipmate'
+  Plug 'snipmate-snippets'
   " snipmate end
-  Bundle 'sudar/vim-arduino-syntax'
-  Bundle 'matchit.zip'
-  Bundle 'rainbow_parentheses.vim'
-  Bundle 'jrestrepo/matlab'
-  " Bundle 'gibiansky/vim-latex-objects'
-  " Bundle 'Lokaltog/vim-easymotion'
+  Plug 'sudar/vim-arduino-syntax'
+  Plug 'matchit.zip'
+  Plug 'rainbow_parentheses.vim'
+  Plug 'jrestrepo/matlab'
+  Plug 'vim-latex/vim-latex'
+  " Plug 'gibiansky/vim-latex-objects'
+  " Plug 'Lokaltog/vim-easymotion'
 " other stuff
-  " Bundle 'JuliaLang/julia-vim'
-call vundle#end()
-filetype plugin indent on
+  " Plug 'JuliaLang/julia-vim'
+call plug#end()
+
+" filetype plugin indent on
 " filetype plugin on
 
 " verbose map [mapping] = find where and how something is defined
 
 " GENERAL
 """""""""""
-set runtimepath^=~/.vim,/Applications/MacVim.app/Contents/Resources/vim/runtime,$VIMRUNTIME
+" set runtimepath^=~/.vim,$VIMRUNTIME
 set encoding=utf-8
 " set spell
 set spelllang=en_gb
