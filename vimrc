@@ -2,12 +2,6 @@
 """""""""""
 set nocompatible              " be iMproved, required
 
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall
-endif
-
 call plug#begin('~/.vim/bundle')
 " :PlugInstall(!)    - install (update) plugins
 " :PlugUpdate
@@ -34,14 +28,14 @@ call plug#begin('~/.vim/bundle')
   " Plug 'JuliaLang/julia-vim'
 call plug#end()
 
-" filetype plugin indent on
+filetype plugin indent on
 " filetype plugin on
+
 
 " verbose map [mapping] = find where and how something is defined
 
 " GENERAL
 """""""""""
-" set runtimepath^=~/.vim,$VIMRUNTIME
 set encoding=utf-8
 " set spell
 set spelllang=en_gb
@@ -102,6 +96,17 @@ let g:ctrlp_working_path_mode = 'c'
 let g:airline_powerline_fonts=1
 let g:airline_theme='tomorrow'
 
+" vim-latex
+let g:tex_flavor='latex'
+let g:Tex_Folding=0
+autocmd FileType plaintex,tex setlocal formatoptions-=t
+" TIP: if you write your \label's as \label{fig:something}, then if you
+" type in \ref{fig: and press <C-n> you will automatically cycle through
+" all the figure labels. Very useful!
+set iskeyword+=:
+set grepprg=grep\ -nH\ $*
+imap <F6> <F9>
+
 " RainbowParentheses
 let g:rbpt_colorpairs = [
     \ ['Darkblue',    'SeaGreen3'],
@@ -126,7 +131,6 @@ set linebreak           " only break at breakat characters
 set nolist              " list disables linebreak
 set formatoptions-=t    " no break while type
 set textwidth=72
-autocmd FileType tex,plaintex setlocal formatoptions-=t
 set colorcolumn=        " 85
 set number              " enable line numbers
 set relativenumber
@@ -141,8 +145,7 @@ set copyindent          " copy the previous indentation on autoindenting
 set cursorline          " highlight current line
 set hidden
 set smarttab            " insert tabs on the start of a line according to
-                        "    shiftwidth, not tabstop
-set scrolloff=3         " start scrolling 3 lines b4 border
+                        " shiftwidth, not tabstop
 set cindent
 set backspace=indent,eol,start " backspace everything in insert mode
 set showmode
@@ -159,6 +162,10 @@ if &term =~ '^screen'
 endif
 set history=1000        " remembered command history
 set undolevels=1000
+" scroll 5 lines with <C-u>
+noremap <C-u> 10<C-u>
+noremap <C-d> 10<C-d>
+set scrolloff=3         " start scrolling 3 lines before border
 set nostartofline       " don’t set cursor to start of line when moving around.
 
 
@@ -258,7 +265,7 @@ autocmd FileType c,cpp,java      let b:comment_leader = '//'
 autocmd FileType arduino         let b:comment_leader = '//'
 autocmd FileType sh,ruby,python  let b:comment_leader = '#'
 autocmd FileType conf,fstab      let b:comment_leader = '#'
-autocmd FileType matlab,plaintex,tex      let b:comment_leader = '%'
+autocmd FileType matlab,plaintex,tex,latex      let b:comment_leader = '%'
 autocmd FileType vim             let b:comment_leader = '"'
 autocmd FileType html            let b:comment_leader = '<!--  -->'
 autocmd FileType css,scss        let b:comment_leader = '/* */'

@@ -25,7 +25,11 @@ tags
 *.log
 *.out
 *.synctex.gz
+*.synctex.*
 *.toc
 *.tex.bak
+*.latexmain
+*.run.xml
+*.bcf
 # matlab compiled files
 *.mexmaci64

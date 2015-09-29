@@ -2,7 +2,7 @@
   name = niccnacc
   email = michael@schwegel.at
 [core]
-	editor = /Applications/MacVim.app/Contents/MacOS/Vim
+	editor = nvim
 	excludesfile = ~/.gitignore_global
 #[remote "usb"]
   #url = file:///Volumes/Meer/giteria/flip.git
@@ -14,13 +14,13 @@
   alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\ => \\2/' | sort
   ci = commit
   ciam = commit --all --message
-  aa = add -A :/
+  aa = add --all :/
+  ciaa = !git add -A :/ && git commit --all --message
   co = checkout
   br = branch
   s  = status
   l = log --all --graph --pretty=format:'%C(cyan)%h%Creset | %s %Cred%d %C(green)(%ar)%Creset' -5
   lg  = log --graph --pretty=format:'%C(cyan)%h%Creset %s %C(green)| %ar%Creset' --name-status -3
-  ad = add --all :/
   unstage = reset HEAD --
   filelog = log -u
   this = !git init && git add . && git commit -m \"initial commit\"
