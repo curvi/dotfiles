@@ -18,6 +18,7 @@ Thumbs.db
 # other generated files
 tags
 # latex auxillary files
+pgfplots/
 *.aux
 *.bbl
 *.blg
@@ -33,3 +34,4 @@ tags
 *.bcf
 # matlab compiled files
 *.mexmaci64
+slprj/
