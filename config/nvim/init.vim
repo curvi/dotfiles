@@ -9,6 +9,7 @@ call plug#begin('~/.vim/bundle')
 " :PlugClean(!)
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'bling/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
   Plug 'ctrlp.vim'
   Plug 'AutoTag'
   " snipmate
@@ -33,6 +34,7 @@ filetype plugin indent on
 
 
 " verbose map [mapping] = find where and how something is defined
+"
 
 " GENERAL
 """""""""""
@@ -95,6 +97,7 @@ let g:ctrlp_working_path_mode = 'c'
 " https://github.com/antindexer/monaco
 let g:airline_powerline_fonts=1
 let g:airline_theme='tomorrow'
+
 
 " vim-latex
 let g:tex_flavor='latex'
@@ -217,12 +220,12 @@ nnoremap <silent> <expr> $ ScreenMovement("$")
 """"""""""""""
 " set clipboard=unnamed " unnamed buffer <-> clipboard
 " Yank/paste to the OS clipboard with ,y and ,p
-nmap <leader>y "*y
-nmap <leader>Y "*y$
-nmap <leader>p "*p
-nmap <leader>P "*P
-vmap <leader>y "*y
-vmap <leader>p "*p
+nmap <leader>y "+y
+nmap <leader>Y "+y$
+nmap <leader>p "+p
+nmap <leader>P "+P
+vmap <leader>y "+y
+vmap <leader>p "+p
 " same behavior as C
 nnoremap D d$
 nnoremap Y y$
@@ -231,6 +234,8 @@ nnoremap Y y$
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<cr>
 " open preferences with lead+pref
 nnoremap <leader>pref <C-w>v<C-l>:e $MYVIMRC<cr>
+" reload the configuration with leader+r
+nnoremap <leader>r :source $MYVIMRC<cr>
 
 
 " SPLITTING
@@ -254,7 +259,7 @@ inoremap <C-u> <Esc>viwUea
 """""""""""""""""""
 set tags=./tags;/
 " open tag in vertial split
-map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <cr>:exec("tag ".expand("<cword>"))<cr>
 nnoremap ]t :tnext<cr>
 nnoremap [t :tprev<cr>
 
@@ -270,6 +275,8 @@ autocmd FileType vim             let b:comment_leader = '"'
 autocmd FileType html            let b:comment_leader = '<!--  -->'
 autocmd FileType css,scss        let b:comment_leader = '/* */'
 autocmd FileType * exe EscapeCommentLeader()
+
+
 
 function! EscapeCommentLeader()
   if exists('b:comment_leader')
@@ -292,9 +299,7 @@ function! ToggleComment()
   end
 endfunction
 
-nnoremap <leader>c :call ToggleComment()<CR>
-
-nnoremap <leader>r :source ~/.vimrc<CR>
+nnoremap <leader>c :call ToggleComment()<cr>
 
 
 " OPEN LAST

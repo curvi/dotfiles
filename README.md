@@ -19,3 +19,25 @@ http://robots.thoughtbot.com/how-to-copy-and-paste-with-tmux-on-mac-os-x
 brew install reattach-to-user-namespace
 
 see all git aliases with git alias
+
+
+
+Linux Fedora
+____________
+Swap Alt and Ctrl keys in Wayland:
+sudo nvim /usr/share/X11/xkb/keycodes/evdev
+<LALT> = 37; //64;
+<LCTL> = 64; //37;
+Check the above keycodes with 'xev', and pressing the key in question
+
+fedy  *fedora only
+bash -c 'su -c "curl http://folkswithhats.org/fedy-installer -o fedy-installer && chmod +x fedy-installer && ./fedy-installer"'
+
+NeoVim
+sudo dnf -y install dnf-plugins-core
+sudo dnf -y copr enable dperson/neovim
+sudo dnf -y install neovim 
+
+sudo dnf -y install gnome-tweak-tool tmux
+Monaco for powerline font
+
