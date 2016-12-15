@@ -10,14 +10,6 @@ brew install git
 git clone https://github.com/niccnacc/dotfiles.git ~/Documents/dotfiles/
 source ~/.bash_profile
 
-install macvim
-install Vundle git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
-brew install tmux
-tmux clipboard ([exited] on startup)
-http://robots.thoughtbot.com/how-to-copy-and-paste-with-tmux-on-mac-os-x
-brew install reattach-to-user-namespace
-
 see all git aliases with git alias
 
 
@@ -36,8 +28,26 @@ bash -c 'su -c "curl http://folkswithhats.org/fedy-installer -o fedy-installer &
 NeoVim
 sudo dnf -y install dnf-plugins-core
 sudo dnf -y copr enable dperson/neovim
-sudo dnf -y install neovim 
+sudo dnf -y install neovim xsel
+*xsel needed for copy/paste into clipboard
+install Vundle git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
 
 sudo dnf -y install gnome-tweak-tool tmux
 Monaco for powerline font
 
+Remove VIDEOS/templates Default folder
+Backup the config file (optional):
+cp ~/.config/user-dirs.dirs ~/.config/user-dirs.dirs.bak
+Edit the file by commenting out unnecessary entries:
+sudo nvim /home/mike/.config/user-dirs.dirs
+sudo nvim /etc/xdg/user-dirs.defaults
+Run update command:
+xdg-user-dirs-update
+
+
+For matlab:
+sudo dnf install ncurses-compat-libs.x86_64
+
+nautilus-scripts
+~/.local/share/nautilus/scripts/

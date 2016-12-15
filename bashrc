@@ -12,6 +12,9 @@ fi
 
 export PATH=$HOME/.local/bin:$HOME/bin:$PATH
 export PATH=$PATH:/usr/texbin:~/.scripts:
+export PATH=$PATH:/usr/local/MATLAB/R2016a/bin:
+export PATH=$PATH:/usr/local/MATLAB/R2016a/bin/glnxa64:
+export PATH=$PATH:/usr/local/maple/bin:
 # export PATH=/usr/local/lib:$PATH
 # export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
 # export PATH=$PATH:/Applications/MATLAB_R2014b.app/bin
