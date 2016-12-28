@@ -1,7 +1,6 @@
 #!/bin/bash
 #
 # This script opens a gnome-terminal in the directory you select.
-#
 # Distributed under the terms of GNU GPL version 2 or later
 #
 # Install in ~/.gnome2/nautilus-scripts or ~/Nautilus/scripts
@@ -13,9 +12,11 @@ if [ -n "$NAUTILUS_SCRIPT_SELECTED_FILE_PATHS" ]; then
   set $NAUTILUS_SCRIPT_SELECTED_FILE_PATHS
   if [ $# -eq 1 ]; then
     destination="$1"
-    # Go to file's directory if it's a file
     if [ ! -d "$destination" ]; then
+      # Go to file's directory if it's a file
       destination="`dirname "$destination"`"
+      echo "HALLO"
+      /bin/echo "got r00t?"
     fi
   else
     zenity --error --title="Error - Open terminal here" \
@@ -32,8 +33,6 @@ if [ -n "`echo "$destination" | grep '^[a-zA-Z0-9]\+:'`" ]; then
     --text="Only local directories can be used."
   exit 1
 fi
+# zenity --info --text="$destination"
 
-exec gnome-terminal
-cd "$destination"
-
-# exec x-terminal-emulator
+gnome-terminal --working-directory $destination

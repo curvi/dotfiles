@@ -17,6 +17,7 @@ ehthumbs.db
 Thumbs.db
 # other generated files
 tags
+tmp.*
 # latex auxillary files
 pgfplots/
 *.aux
@@ -34,4 +35,5 @@ pgfplots/
 *.bcf
 # matlab compiled files
 *.mexmaci64
+*.mexw64
 slprj/

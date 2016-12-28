@@ -42,3 +42,4 @@ NO_COLOR="\[\033[0m\]"      #normal text - don't change
 COLOR1="\[\e[00;32m\]"
 COLOR2="\[\e[00;36m\]"
 export PS1="${COLOR1}\u${NO_COLOR}:${COLOR2}\W${NO_COLOR}\$ "
+
