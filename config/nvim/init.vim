@@ -2,7 +2,7 @@
 """""""""""
 set nocompatible              " be iMproved, required
 
-call plug#begin('~/.vim/bundle')
+call plug#begin('~/.config/nvim/bundle')
 " :PlugInstall(!)    - install (update) plugins
 " :PlugUpdate
 " :PlugSearch(!) foo - search (or refresh cache first) for foo
@@ -47,19 +47,23 @@ set noswapfile
 set nomodeline          " dont scan file for commands for security
 set nofoldenable
 
-set t_Co=256
+" set t_Co=256
 " http://snk.tuxfamily.org/log/vim-256color-bce.html
 " Disable Background Color Erase (BCE) so that color schemes
 " work properly when Vim is used inside tmux and GNU screen.
-if &term =~ '256color'
-  set t_ut=
+" if &term =~ '256color'
+  " set t_ut=
+" endif
+if has("termguicolors")
+  set termguicolors
 endif
 
 " vimcolors.com
 " find names of elements: ':hi' or http://www.vimtax.com/
 " edit schemes graphically http://bytefluent.com/vivify/
 " get matching colors: http://colorschemedesigner.com/
-colorscheme molokai_flat
+" colorscheme molokai_flat
+colorscheme solarized8_light_flat
 " https://github.com/vim-scripts/BusyBee
 " let g:molokai_original = 1
 " let g:rehash256 = 1
@@ -70,6 +74,8 @@ colorscheme molokai_flat
 " set background=dark
 " let g:solarized_termcolors = 256  " New line!!
 " colorscheme solarized
+" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 
 " LEADER

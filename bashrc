@@ -2,7 +2,7 @@
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+  . /etc/bashrc
 fi
 
 # source ~/.bashrc
@@ -23,9 +23,10 @@ export PATH=$PATH:/usr/local/maple/bin:
 
 alias sudo="sudo "
 alias vim="nvim"
+# alias tmux="env TERM=xterm-256color tmux"
 
 
-# Set colors to match iTerm2 Terminal Colors
+export TERM=xterm-256color
 # export TERM=screen-256color
 # rxvt-unicode-256color
 # Set CLICOLOR if you want Ansi Colors in iTerm2
@@ -36,10 +37,16 @@ export LS_COLORS='di=0;36'; # 35 purple, 36 cyan, 32 green
 # infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
 # tic $TERM.ti
 
-# Colored promt info
+# Colored promt info without powerline
 # http://www.ibm.com/developerworks/linux/library/l-tip-prompt/
-NO_COLOR="\[\033[0m\]"      #normal text - don't change
-COLOR1="\[\e[00;32m\]"
-COLOR2="\[\e[00;36m\]"
-export PS1="${COLOR1}\u${NO_COLOR}:${COLOR2}\W${NO_COLOR}\$ "
+# NO_COLOR="\[\033[0m\]"      #normal text - don't change
+# COLOR1="\[\e[00;32m\]"
+# COLOR2="\[\e[00;36m\]"
+# export PS1="${COLOR1}\u${NO_COLOR}:${COLOR2}\W${NO_COLOR}\$ "
 
+if [ -f `which powerline-daemon` ]; then
+  powerline-daemon -q
+  POWERLINE_BASH_CONTINUATION=1
+  POWERLINE_BASH_SELECT=1
+  . /usr/share/powerline/bash/powerline.sh
+fi
