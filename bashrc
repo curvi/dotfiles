@@ -21,11 +21,6 @@ export PATH=$PATH:/usr/local/maple/bin:
 # export PATH=$PATH:/Applications/MATLAB_R2014b.app/bin/maci64
 
 
-alias sudo="sudo "
-alias vim="nvim"
-# alias tmux="env TERM=xterm-256color tmux"
-
-
 export TERM=xterm-256color
 # export TERM=screen-256color
 # rxvt-unicode-256color
@@ -50,3 +45,8 @@ if [ -f `which powerline-daemon` ]; then
   POWERLINE_BASH_SELECT=1
   . /usr/share/powerline/bash/powerline.sh
 fi
+
+
+alias sudo="sudo "
+alias vim="nvim"
+# alias tmux="env TERM=xterm-256color tmux"

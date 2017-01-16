@@ -11,10 +11,9 @@
 
 # function to open the given file in a split
 function split_open () {
-tmux send-keys -t nvim Escape # goto normal mode
-tmux send-keys -t nvim ",w" Enter # split pane vertically
   tmux send-keys -t nvim Escape # goto normal mode
-  tmux send-keys -t nvim ";e $1" Enter # load new file
+  tmux send-keys -t nvim ";vsp ${1}" Enter # split pane vertically
+  tmux send-keys -t nvim Escape ",r" ;# goto normal mode
 }
 
 # rename the ridiculous selection variable
@@ -25,15 +24,15 @@ selection=(${NAUTILUS_SCRIPT_SELECTED_FILE_PATHS[*]})
 # When a directory is selected, go there. Otherwise go to current
 # directory. If more than one directory is selected, show error.
 if [ -d "${selection[0]}" ]; then
-zenity --info --text="Directory selected!"
-exit 1
+  zenity --info --text="Directory selected!"
+  exit 1
 fi
 
 if ! tmux has-session -t nvim ; then
   # start up a fresh nvim session!
   tmux new-session -d -s nvim
   tmux send-keys -t nvim "nvim -O ${selection[*]}" Enter
-  tmux send-keys -t nvim Escape ; # change to normal mode
+  tmux send-keys -t nvim Escape ",r" ; # change to normal mode
   # after the tmux session is prepared - attach to it in gnome-terminal!
   gnome-terminal -e "tmux attach-session -d -t nvim"
 else
