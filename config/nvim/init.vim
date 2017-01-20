@@ -47,6 +47,15 @@ set noswapfile
 set nomodeline          " dont scan file for commands for security
 set nofoldenable
 
+" LEADER
+"""""""""""
+let mapleader = ","
+inoremap jj <ESC>
+nnoremap ; :
+nnoremap : ;
+" save on loss of focus
+:au FocusLost * :wa
+
 " set t_Co=256
 " http://snk.tuxfamily.org/log/vim-256color-bce.html
 " Disable Background Color Erase (BCE) so that color schemes
@@ -78,14 +87,9 @@ colorscheme solarized8_light_flat
 " let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 
-" LEADER
-"""""""""""
-let mapleader = ","
-inoremap jj <ESC>
-nnoremap ; :
-nnoremap : ;
-" save on loss of focus
-:au FocusLost * :wa
+
+nnoremap <leader>dark :colorscheme molokai_flat<cr>
+nnoremap <leader>light :colorscheme solarized8_light_flat<cr>
 
 
 " PLUGIN SETTINGS

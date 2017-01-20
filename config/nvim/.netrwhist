@@ -1,7 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/Users/mike/.vim/bundle'
-let g:netrw_dirhist_2='/Users/mike/.vim/bundle/snipmate-snippets'
-let g:netrw_dirhist_3='/Users/mike/.vim/bundle/snipmate-snippets/snippets'
-let g:netrw_dirhist_4='/Users/mike/Documents/Programmieren/Arduino/libraries/GY86'
-let g:netrw_dirhist_5='/Users/mike/Documents/flip'
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/mike/Documents/diss/code/adaptive'
+let g:netrw_dirhist_2='/home/mike/Documents/diss/code/adaptive/simulations'
+let g:netrw_dirhist_3='/home/mike/Documents/diss/code/adaptive/adaption_laws'
