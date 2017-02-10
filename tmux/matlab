@@ -1,6 +1,6 @@
 # split current pane and run 'matlab' command inside the new one
 # panewidth in colums, start dir like the original pane
-splitw -h -p 30  -c "#{pane_current_path}"
+splitw -h -p 25  -c "#{pane_current_path}"
 send-keys 'matlab -nodesktop -nosplash' C-m
 # selectp -t 0 # select the first (0) pane
 

@@ -115,7 +115,7 @@ let g:Tex_Folding=0
 autocmd FileType plaintex,tex setlocal formatoptions-=t
 " TIP: if you write your \label's as \label{fig:something}, then if you
 " type in \ref{fig: and press <C-n> you will automatically cycle through
-" all the figure labels. Very useful!
+" all the figure labels.
 set iskeyword+=:
 set grepprg=grep\ -nH\ $*
 imap <F6> <F9>
@@ -245,7 +245,8 @@ nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<cr>
 " open preferences with lead+pref
 nnoremap <leader>pref <C-w>v<C-l>:e $MYVIMRC<cr>
 " reload the configuration with leader+r
-nnoremap <leader>r :source $MYVIMRC<cr>
+nnoremap <leader>rel :source $MYVIMRC<cr>
+nnoremap <leader>r :redraw!<cr>
 
 
 " SPLITTING
@@ -255,7 +256,6 @@ set splitright
 " open vertical split with leader+w
 nnoremap <leader>w <C-w>v<C-w>l
 " move between windows with C-hjkl
-" let g:tmux_navigator_no_mappings = 1
 " nnoremap <silent><C-h> :TmuxNavigateLeft<cr>
 
 

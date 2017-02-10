@@ -31,6 +31,7 @@ export LS_COLORS='di=0;36'; # 35 purple, 36 cyan, 32 green
 # make <C-h> work again: https://github.com/christoomey/vim-tmux-navigator/issues/61
 # infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
 # tic $TERM.ti
+export SVN_EDITOR=nvim
 
 # Colored promt info without powerline
 # http://www.ibm.com/developerworks/linux/library/l-tip-prompt/
