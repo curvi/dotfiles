@@ -20,6 +20,7 @@ export PATH=$PATH:/usr/local/maple/bin:
 # export PATH=$PATH:/Applications/MATLAB_R2014b.app/bin
 # export PATH=$PATH:/Applications/MATLAB_R2014b.app/bin/maci64
 
+export PYTHONPATH=$PYTHONPATH:/home/mike/Documents/acin/ACIN_LaTeX_Vorlagen/scripts
 
 export TERM=xterm-256color
 # export TERM=screen-256color

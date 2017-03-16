@@ -23,6 +23,7 @@ call plug#begin('~/.config/nvim/bundle')
   Plug 'rainbow_parentheses.vim'
   Plug 'jrestrepo/matlab'
   Plug 'vim-latex/vim-latex'
+  Plug 'frankier/neovim-colors-solarized-truecolor-only'
   " Plug 'gibiansky/vim-latex-objects'
   " Plug 'Lokaltog/vim-easymotion'
 " other stuff
@@ -72,20 +73,12 @@ endif
 " edit schemes graphically http://bytefluent.com/vivify/
 " get matching colors: http://colorschemedesigner.com/
 " colorscheme molokai_flat
-colorscheme solarized8_light_flat
-" https://github.com/vim-scripts/BusyBee
-" let g:molokai_original = 1
-" let g:rehash256 = 1
-" colorscheme gruvbox
-" if !has("gui_running")
-"   let g:gruvbox_italic=0
-" endif
-" set background=dark
-" let g:solarized_termcolors = 256  " New line!!
-" colorscheme solarized
-" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-
+" colorscheme solarized8_light_flat
+autocmd ColorScheme * hi link matlabComma Normal
+set background=light
+colorscheme solarized
+set fillchars=vert:│
+hi link matlabSemicolon normal
 
 
 nnoremap <leader>dark :colorscheme molokai_flat<cr>
@@ -148,7 +141,7 @@ set colorcolumn=        " 85
 set number              " enable line numbers
 set relativenumber
 "corresponding filetypes are in ~/.vim/ftdetect
-syntax on               " enable syntax highlighting
+syntax enable
 set tabstop=2           " a tab is two spaces
 set softtabstop=2       " for <BS>, pretend like a tab is removed even spaces
 set shiftwidth=2        " number of spaces for autoindenting
