@@ -12,21 +12,17 @@ call plug#begin('~/.config/nvim/bundle')
   Plug 'vim-airline/vim-airline-themes'
   Plug 'ctrlp.vim'
   Plug 'AutoTag'
-  " snipmate
-  Plug 'MarcWeber/vim-addon-mw-utils'
-  Plug 'tomtom/tlib_vim'
-  Plug 'garbas/vim-snipmate'
-  Plug 'snipmate-snippets'
-  " snipmate end
+  " Plug 'snipmate-snippets'
+  Plug 'SirVer/ultisnips'
+  Plug 'honza/vim-snippets'
+  Plug 'Valloric/YouCompleteMe' " code completion
   Plug 'sudar/vim-arduino-syntax'
   Plug 'matchit.zip'
-  Plug 'rainbow_parentheses.vim'
   Plug 'jrestrepo/matlab'
-  Plug 'vim-latex/vim-latex'
+  Plug 'lervag/vimtex'
   Plug 'frankier/neovim-colors-solarized-truecolor-only'
-  " Plug 'gibiansky/vim-latex-objects'
   " Plug 'Lokaltog/vim-easymotion'
-" other stuff
+  " other stuff
   " Plug 'JuliaLang/julia-vim'
 call plug#end()
 
@@ -101,8 +97,25 @@ let g:ctrlp_working_path_mode = 'c'
 let g:airline_powerline_fonts=1
 let g:airline_theme='tomorrow'
 
+" Snip Trigger configuration.
+" Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsEditSplit = 'vertical'
+let g:UltiSnipsSnippetsDir ="~/.config/nvim/UltiSnips"
 
-" vim-latex
+" YouCompleteMe
+let g:ycm_key_list_select_completion = ['<c-n>', '<down>']
+let g:ycm_key_list_previous_completion = ['<c-p>', '<up>']
+let g:ycm_min_num_of_chars_for_completion = 2
+let g:ycm_filetype_blacklist = {
+ \ 'text' : 1,
+ \}
+
+
+
+" vimtex
 let g:tex_flavor='latex'
 let g:Tex_Folding=0
 autocmd FileType plaintex,tex setlocal formatoptions-=t
@@ -111,23 +124,6 @@ autocmd FileType plaintex,tex setlocal formatoptions-=t
 " all the figure labels.
 set iskeyword+=:
 set grepprg=grep\ -nH\ $*
-imap <F6> <F9>
-
-" RainbowParentheses
-let g:rbpt_colorpairs = [
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
-let g:rbpt_max = 16
-nnoremap <leader>h :RainbowParenthesesToggle<cr>
 
 
 " TEXT/NUMBERS
@@ -193,6 +189,7 @@ set hlsearch            " highlight searches automatically
 set incsearch           " highlight while typing allready
 " remove highlights after searching
 nnoremap <leader><Space> :noh<cr>
+set inccommand=split " live subsitute
 
 
 " MOVEMENTS
@@ -250,6 +247,12 @@ set splitright
 nnoremap <leader>w <C-w>v<C-w>l
 " move between windows with C-hjkl
 " nnoremap <silent><C-h> :TmuxNavigateLeft<cr>
+"
+" Move away from terminal splits
+tnoremap <C-h> <C-\><C-N><C-w>h
+tnoremap <C-l> <C-\><C-N><C-w>l
+
+nnoremap <leader>mat :vsplit term://tmux new-session -ds mat; tmux attach -t mat; matlab -nodesktop -nosplash<cr>
 
 
 " Insert Mode Keys

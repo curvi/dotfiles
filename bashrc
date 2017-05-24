@@ -22,6 +22,10 @@ export PATH=$PATH:/usr/local/maple/bin:
 
 export PYTHONPATH=$PYTHONPATH:/home/mike/Documents/acin/ACIN_LaTeX_Vorlagen/scripts
 
+# export KERN_DIR=/usr/src/kernels/4.9.14-200.fc25.x86_64
+# KERN_DIR=/usr/src/kernels/`uname -r`
+# export $KERN_DIR
+
 export TERM=xterm-256color
 # export TERM=screen-256color
 # rxvt-unicode-256color

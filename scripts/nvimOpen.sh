@@ -16,6 +16,10 @@ function split_open () {
   tmux send-keys -t nvim Escape ",r" ;# goto normal mode
 }
 
+# function go_fullscreen () {
+  # tmux send-keys -e "tmux attach-session -d -t nvim"
+# }
+
 # rename the ridiculous selection variable
 selection=(${NAUTILUS_SCRIPT_SELECTED_FILE_PATHS[*]})
 
@@ -35,6 +39,7 @@ if ! tmux has-session -t nvim ; then
   tmux send-keys -t nvim Escape ",r" ; # change to normal mode
   # after the tmux session is prepared - attach to it in gnome-terminal!
   gnome-terminal -e "tmux attach-session -d -t nvim"
+  # tmux send-keys -t nvim Control "1"
 else
   # open all remaining files in nvim splits (using my shortcuts)
   for selected_file in ${selection[*]} ; do
