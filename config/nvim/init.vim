@@ -10,14 +10,13 @@ call plug#begin('~/.config/nvim/bundle')
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'bling/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-  Plug 'ctrlp.vim'
-  Plug 'AutoTag'
-  " Plug 'snipmate-snippets'
+  Plug 'ctrlpvim/ctrlp.vim'
+  " Plug 'AutoTag'
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
   Plug 'Valloric/YouCompleteMe' " code completion
   Plug 'sudar/vim-arduino-syntax'
-  Plug 'matchit.zip'
+  Plug 'adelarsq/vim-matchit'
   Plug 'jrestrepo/matlab'
   Plug 'lervag/vimtex'
   Plug 'frankier/neovim-colors-solarized-truecolor-only'
@@ -47,6 +46,7 @@ set nofoldenable
 " LEADER
 """""""""""
 let mapleader = ","
+let maplocalleader = ","
 inoremap jj <ESC>
 nnoremap ; :
 nnoremap : ;
@@ -118,12 +118,33 @@ let g:ycm_filetype_blacklist = {
 " vimtex
 let g:tex_flavor='latex'
 let g:Tex_Folding=0
+let g:latex_view_general_viewer = 'zathura'
+let g:vimtex_view_method = "zathura"
+" sudo dnf install python3-pip redhat-rpm-config; sudo pip3 install neovim-remote
+let g:vimtex_compiler_progname='nvr'
 autocmd FileType plaintex,tex setlocal formatoptions-=t
 " TIP: if you write your \label's as \label{fig:something}, then if you
 " type in \ref{fig: and press <C-n> you will automatically cycle through
 " all the figure labels.
 set iskeyword+=:
 set grepprg=grep\ -nH\ $*
+
+let g:vimtex_compiler_latexmk = {
+    \ 'backend' : 'nvim',
+    \ 'background' : 1,
+    \ 'build_dir' : '.',
+    \ 'callback' : 1,
+    \ 'continuous' : 1,
+    \ 'executable' : 'latexmk',
+    \ 'options' : [
+    \   '-pdf',
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-synctex=1',
+    \   '-interaction=nonstopmode',
+    \   '-shell-escape',
+    \ ],
+\}
 
 
 " TEXT/NUMBERS

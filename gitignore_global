@@ -20,6 +20,8 @@ tags
 tmp.*
 # latex auxillary files
 pgfplots/
+*.fdb_latexmk
+*.fls
 *.aux
 *.bbl
 *.blg
@@ -37,3 +39,4 @@ pgfplots/
 *.mexmaci64
 *.mexw64
 slprj/
+*.autosave

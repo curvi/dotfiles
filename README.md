@@ -32,6 +32,10 @@ sudo dnf -y install neovim xsel
 *xsel needed for copy/paste into clipboard
 install Vundle git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
+vimtex and 
+sudo dnf install python3-pip redhat-rpm-config
+pip3 install neovim-remote
+
 
 sudo dnf -y install gnome-tweak-tool tmux
 Monaco for powerline font
