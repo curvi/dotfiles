@@ -145,6 +145,12 @@ let g:vimtex_compiler_latexmk = {
     \   '-shell-escape',
     \ ],
 \}
+let g:vimtex_quickfix_open_on_warning = 0
+let g:vimtex_quickfix_latexlog = {
+          \ 'overfull' : 0,
+          \ 'underfull' : 0,
+\}
+let g:vimtex_toc_tocdepth = 2
 
 
 " TEXT/NUMBERS

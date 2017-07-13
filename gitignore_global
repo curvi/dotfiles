@@ -23,6 +23,7 @@ pgfplots/
 *.fdb_latexmk
 *.fls
 *.aux
+*.auxlock
 *.bbl
 *.blg
 *.dvi
