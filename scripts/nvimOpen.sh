@@ -12,8 +12,9 @@
 # function to open the given file in a split
 function split_open () {
   tmux send-keys -t nvim Escape # goto normal mode
-  tmux send-keys -t nvim ";vsp ${1}" Enter # split pane vertically
-  tmux send-keys -t nvim Escape ",r" ;# goto normal mode
+  tmux send-keys -t nvim ":vsp ${1}" Enter # split pane vertically
+  tmux send-keys -t nvim Escape ",r" ;# reload
+  tmux send-keys -t nvim Escape # goto normal mode
 }
 
 # function go_fullscreen () {

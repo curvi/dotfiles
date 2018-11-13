@@ -53,5 +53,12 @@ xdg-user-dirs-update
 For matlab:
 sudo dnf install ncurses-compat-libs.x86_64
 
+Matlab Display Error with 
+/glnxa64/libstdc++.so.6: version `CXXABI_1.3.9' not found 
+I edited a file called path_to_ matlab/bin/.matlab7rc.sh and uncommented all lines that were(there are several (3) of them): LDPATH_PREFIX='$MATLAB/sys/opengl/lib/$ARCH'
+see
+http://stackoverflow.com/questions/38473597/matlab-on-linux-cant-plot-anythingcant-load-libstdc-so-6-version-cxxabi-1
+
+
 nautilus-scripts
 ~/.local/share/nautilus/scripts/

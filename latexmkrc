@@ -9,7 +9,6 @@ push @generated_exts, "brf";
 push @generated_exts, "nlg";
 push @generated_exts, "nlo";
 push @generated_exts, "nls";
-push @generated_exts, "synctex.gz";
 push @generated_exts, "run.xml";
 push @generated_exts, "auxlock";
-$clean_ext = "bbl ";
+$clean_ext = "bbl aux cb2 cb spl nav snm tdo nmo brf nlg nlo nls run.xml auxlock";

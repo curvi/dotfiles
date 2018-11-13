@@ -17,11 +17,11 @@ snippet reff "figure reference" i
 fig.~\ref{fig:$1} $0
 endsnippet
 
-snippet v "vector components" i
+snippet v "vector components" b
 \ve{${1:x}}$0
 endsnippet
 
-snippet ma "matrix components" i
+snippet ma "matrix components" b
 \ma{${1:x}}$0
 endsnippet
 
@@ -29,10 +29,18 @@ snippet lab "label" i
 \label{eq:${1}}
 endsnippet
 
-snippet fs "fullstop"
+snippet fs "fullstop" b
 \fullstop
 endsnippet
 
-snippet dt "differential" i
+snippet dt "differential" b
 \diffT{$1}$0
+endsnippet
+
+snippet ej "DFT of a signal" i
+(\e^{j\omega})
+endsnippet
+
+snippet k "sample instance" i
+\q{${1:k}}$0
 endsnippet

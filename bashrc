@@ -12,15 +12,13 @@ fi
 
 export PATH=$HOME/.local/bin:$HOME/bin:$PATH
 export PATH=$PATH:/usr/texbin:~/.scripts:
-export PATH=$PATH:/usr/local/MATLAB/R2016a/bin:
-export PATH=$PATH:/usr/local/MATLAB/R2016a/bin/glnxa64:
+# export PATH=$PATH:/usr/local/MATLAB/R2016b/bin:
+export PATH=$PATH:/usr/local/MATLAB/R2016b/bin/glnxa64:
 export PATH=$PATH:/usr/local/maple/bin:
 # export PATH=/usr/local/lib:$PATH
 # export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
-# export PATH=$PATH:/Applications/MATLAB_R2014b.app/bin
-# export PATH=$PATH:/Applications/MATLAB_R2014b.app/bin/maci64
 
-export PYTHONPATH=$PYTHONPATH:/home/mike/Documents/acin/ACIN_LaTeX_Vorlagen/scripts
+export PYTHONPATH=$PYTHONPATH:/home/mike/Documents/acin_svn/ACIN_LaTeX_Vorlagen/scripts
 
 # export KERN_DIR=/usr/src/kernels/4.9.14-200.fc25.x86_64
 # KERN_DIR=/usr/src/kernels/`uname -r`
@@ -56,3 +54,14 @@ fi
 alias sudo="sudo "
 alias vim="nvim"
 # alias tmux="env TERM=xterm-256color tmux"
+# alias matlab="matlab -softwareopengl"
+
+
+# Auto-Update atom
+# ATOM_INSTALLED_VERSION=$(rpm -qi atom | grep "Version" |  cut -d ':' -f 2 | cut -d ' ' -f 2)
+# ATOM_LATEST_VERSION=$(curl -sL "https://api.github.com/repos/atom/atom/releases/latest" | grep -E "https.*atom-amd64.tar.gz" | cut -d '"' -f 4 | cut -d '/' -f 8 | sed 's/v//g')
+
+# if [[ $ATOM_INSTALLED_VERSION < $ATOM_LATEST_VERSION ]]; then
+  # sudo dnf install -y https://github.com/atom/atom/releases/download/v${ATOM_LATEST_VERSION}/atom.x86_64.rpm
+# fi
+

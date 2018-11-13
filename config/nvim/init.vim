@@ -48,8 +48,8 @@ set nofoldenable
 let mapleader = ","
 let maplocalleader = ","
 inoremap jj <ESC>
-nnoremap ; :
-nnoremap : ;
+" nnoremap ; :
+" nnoremap : ;
 " save on loss of focus
 :au FocusLost * :wa
 
@@ -121,14 +121,16 @@ let g:Tex_Folding=0
 let g:latex_view_general_viewer = 'zathura'
 let g:vimtex_view_method = "zathura"
 " sudo dnf install python3-pip redhat-rpm-config; sudo pip3 install neovim-remote
+" zathura -h should display synctex support
+" zathura --version shows a pdf plugin
 let g:vimtex_compiler_progname='nvr'
+let g:vimtex_toc_tocdepth = 2
 autocmd FileType plaintex,tex setlocal formatoptions-=t
-" TIP: if you write your \label's as \label{fig:something}, then if you
-" type in \ref{fig: and press <C-n> you will automatically cycle through
-" all the figure labels.
-set iskeyword+=:
-set grepprg=grep\ -nH\ $*
-
+let g:vimtex_quickfix_open_on_warning = 0
+let g:vimtex_quickfix_latexlog = {
+          \ 'overfull' : 0,
+          \ 'underfull' : 0,
+\}
 let g:vimtex_compiler_latexmk = {
     \ 'backend' : 'nvim',
     \ 'background' : 1,
@@ -145,12 +147,9 @@ let g:vimtex_compiler_latexmk = {
     \   '-shell-escape',
     \ ],
 \}
-let g:vimtex_quickfix_open_on_warning = 0
-let g:vimtex_quickfix_latexlog = {
-          \ 'overfull' : 0,
-          \ 'underfull' : 0,
-\}
-let g:vimtex_toc_tocdepth = 2
+
+set iskeyword+=:
+set grepprg=grep\ -nH\ $*
 
 
 " TEXT/NUMBERS
@@ -256,6 +255,10 @@ vmap <leader>p "+p
 " same behavior as C
 nnoremap D d$
 nnoremap Y y$
+
+" Buffer Jumping
+nnoremap <leader>bb :buffers<cr>:b<space>
+nnoremap <leader><tab> :b#<cr>
 
 " leader+w = delete trailing whitespaces
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<cr>
