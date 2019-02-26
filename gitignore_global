@@ -41,3 +41,6 @@ pgfplots/
 *.mexw64
 slprj/
 *.autosave
+# jupyter-lab/jupyter notebook files
+.ipynb_checkpoints/
+

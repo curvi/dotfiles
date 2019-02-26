@@ -12,11 +12,13 @@ fi
 
 export PATH=$HOME/.local/bin:$HOME/bin:$PATH
 export PATH=$PATH:/usr/texbin:~/.scripts:
-# export PATH=$PATH:/usr/local/MATLAB/R2016b/bin:
+export PATH=$PATH:/usr/local/MATLAB/R2016b/bin:
 export PATH=$PATH:/usr/local/MATLAB/R2016b/bin/glnxa64:
 export PATH=$PATH:/usr/local/maple/bin:
+export PATH=/usr/local/bin:$PATH
 # export PATH=/usr/local/lib:$PATH
 # export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH
+
 
 export PYTHONPATH=$PYTHONPATH:/home/mike/Documents/acin_svn/ACIN_LaTeX_Vorlagen/scripts
 
@@ -53,6 +55,7 @@ fi
 
 alias sudo="sudo "
 alias vim="nvim"
+# alias vim="vim --servername foo" # outdated for nvim
 # alias tmux="env TERM=xterm-256color tmux"
 # alias matlab="matlab -softwareopengl"
 
