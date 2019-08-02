@@ -1,3 +1,28 @@
+# https://castel.dev/post/lecture-notes-1/
+global !p
+texMathZones = ['texMathZone'+x for x in ['A', 'AS', 'B', 'BS', 'C',
+'CS', 'D', 'DS', 'E', 'ES', 'F', 'FS', 'G', 'GS', 'H', 'HS', 'I', 'IS',
+'J', 'JS', 'K', 'KS', 'L', 'LS', 'DS', 'V', 'W', 'X', 'Y', 'Z']]
+texIgnoreMathZones = ['texMathText']
+texMathZoneIds = vim.eval('map('+str(texMathZones)+", 'hlID(v:val)')")
+texIgnoreMathZoneIds = vim.eval('map('+str(texIgnoreMathZones)+", 'hlID(v:val)')")
+ignore = texIgnoreMathZoneIds[0]
+def math():
+	synstackids = vim.eval("synstack(line('.'), col('.') - (col('.')>=2 ? 1 : 0))")
+	try:
+		first = next(
+            i for i in reversed(synstackids)
+            if i in texIgnoreMathZoneIds or i in texMathZoneIds
+        )
+		return first != ignore
+	except StopIteration:
+		return False
+endglobal
+
+
+
+
+
 snippet env "tex environment" b
 \begin{$1}
 	$2
@@ -5,22 +30,93 @@ snippet env "tex environment" b
 $0
 endsnippet
 
+snippet mk "Math" wA
+$${1}$`!p
+if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
+    snip.rv = ' '
+else:
+    snip.rv = ''
+`$2
+endsnippet
+
+context "math()"
+snippet "(\\?\w+)(,\.|\.,)" "Vector postfix" riA
+\ve{`!p snip.rv=match.group(1)`}
+endsnippet
+
+priority 10
+context "math()"
+snippet "bar" "bar" riA
+\bar{$1}$0
+endsnippet
+
+context "math()"
+snippet "(\\?\w+)hat" "Math" riA
+\hat{`!p snip.rv=match.group(1)`}
+endsnippet
+
+priority 100
+context "math()"
+snippet "(\\?\w+)bar" "bar" riA
+\bar{`!p snip.rv=match.group(1)`}
+endsnippet
+
+context "math()"
+snippet "(\\?\w+)dot" "time-derivative" riA
+\diffT{`!p snip.rv=match.group(1)`}
+endsnippet
+
+context "math()"
+snippet '([A-Za-z])(\d)' "auto subscript" wrA
+`!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
+endsnippet
+
+context "math()"
+snippet '([A-Za-z])_(\d\d)' "auto subscript2" wrA
+`!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2)`}
+endsnippet
+
+context "math()"
+snippet // "Fraction" iA
+\\frac{$1}{$2}$0
+endsnippet
+
+context "math()"
+snippet '((\d+)|(\d*)(\\)?([A-Za-z]+)((\^|_)(\{\d+\}|\d))*)/' "Fraction" wrA
+\\frac{`!p snip.rv = match.group(1)`}{$1}$0
+endsnippet
+
+context "math()"
+snippet td "superscript" iA
+^{$1}$0
+endsnippet
+
 snippet ref "reference" i
-~\ref{$1} $0
+~\ref{$1}$0
+endsnippet
+
+snippet cr "clevereference" i
+\cref{$1}$0
+endsnippet
+
+snippet Cr "Clevereference" i
+\Cref{$1}$0
 endsnippet
 
 snippet refq "equation reference" i
-~(\ref{eq:$1}) $0
+~(\ref{eq:$1})$0
 endsnippet
 
-snippet reff "figure reference" i
-fig.~\ref{fig:$1} $0
+snippet reff "figure reference" b
+fig.~\ref{fig:$1}$0
 endsnippet
 
+context "math()"
 snippet v "vector components" b
 \ve{${1:x}}$0
 endsnippet
 
+context "math()"
 snippet ma "matrix components" b
 \ma{${1:x}}$0
 endsnippet
@@ -29,18 +125,16 @@ snippet lab "label" i
 \label{eq:${1}}
 endsnippet
 
-snippet fs "fullstop" b
+snippet , "comma" b
+\comma
+endsnippet
+
+context "math()"
+snippet fs "fullstop" bA
 \fullstop
 endsnippet
 
+context "math()"
 snippet dt "differential" b
 \diffT{$1}$0
-endsnippet
-
-snippet ej "DFT of a signal" i
-(\e^{j\omega})
-endsnippet
-
-snippet k "sample instance" i
-\q{${1:k}}$0
 endsnippet

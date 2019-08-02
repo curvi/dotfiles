@@ -116,6 +116,13 @@ let g:ycm_filetype_blacklist = {
 
 
 " vimtex
+setlocal spell
+set spelllang=de_at,en_us
+inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+" writing/markup preferences
+set conceallevel=1
+let g:tex_conceal='abdmg'
+" compiling preferences
 let g:tex_flavor='latex'
 " let g:Tex_Folding=0
 let g:latex_view_general_viewer = 'zathura'
@@ -123,6 +130,9 @@ let g:vimtex_view_method = "zathura"
 " sudo dnf install python3-pip redhat-rpm-config; sudo pip3 install neovim-remote, nvr
 " zathura -h should display synctex support
 " zathura --version shows a pdf plugin
+" first infos for debugging in
+" <leader>lo to read bottom of output
+" i.e. pip3 nvr,greenlight,msgpack errors
 let g:vimtex_compiler_progname='/usr/local/bin/nvr'
 " let g:vimtex_toc_tocdepth = 2
 autocmd FileType plaintex,tex setlocal formatoptions-=t
@@ -143,8 +153,8 @@ let g:vimtex_compiler_latexmk = {
     \   '-verbose',
     \   '-file-line-error',
     \   '-synctex=1',
-    \   '-interaction=nonstopmode',
     \   '-shell-escape',
+    \   '-interaction=nonstopmode',
     \ ],
 \}
 

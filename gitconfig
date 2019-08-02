@@ -2,8 +2,8 @@
   name = niccnacc
   email = michael@schwegel.at
 [core]
-	editor = nvim
-	excludesfile = ~/.gitignore_global
+  editor = nvim
+  excludesfile = ~/.gitignore_global
 #[remote "usb"]
   #url = file:///Volumes/Meer/giteria/flip.git
   #fetch = +refs/heads/*:refs/remotes/usb/*
@@ -32,4 +32,10 @@
 [color]
   ui = true
 [push]
-	default = matching
+  default = matching
+[merge]
+  tool = meld
+[mergetool "meld"]
+  # Choose one of these 2 lines (not both!) explained below.
+  cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+  # cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
