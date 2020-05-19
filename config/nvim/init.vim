@@ -133,6 +133,12 @@ let g:vimtex_view_method = "zathura"
 " first infos for debugging in
 " <leader>lo to read bottom of output
 " i.e. pip3 nvr,greenlight,msgpack errors
+"
+" In ~/.config/zathura/zathurarc
+"
+" set synctex true
+" set synctex-editor-command \"nvr --remote-silent %f -c %l"
+" 
 let g:vimtex_compiler_progname='/usr/local/bin/nvr'
 " let g:vimtex_toc_tocdepth = 2
 autocmd FileType plaintex,tex setlocal formatoptions-=t

@@ -29,6 +29,7 @@ pgfplots/
 *.dvi
 *.log
 *.out
+*.pag
 *.synctex.gz
 *.synctex.*
 *.toc
@@ -40,6 +41,7 @@ pgfplots/
 *.mexmaci64
 *.mexw64
 slprj/
+*.slxc
 *.autosave
 # jupyter-lab/jupyter notebook files
 .ipynb_checkpoints/
