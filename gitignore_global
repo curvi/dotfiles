@@ -19,6 +19,7 @@ Thumbs.db
 tags
 tmp.*
 # latex auxillary files
+build/*
 pgfplots/
 *.fdb_latexmk
 *.fls
