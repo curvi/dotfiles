@@ -14,7 +14,7 @@ call plug#begin('~/.config/nvim/bundle')
   " Plug 'AutoTag'
   Plug 'SirVer/ultisnips'
   Plug 'honza/vim-snippets'
-  Plug 'Valloric/YouCompleteMe' " code completion
+  " Plug 'Valloric/YouCompleteMe' " code completion
   Plug 'sudar/vim-arduino-syntax'
   Plug 'adelarsq/vim-matchit'
   Plug 'jrestrepo/matlab'
@@ -106,12 +106,12 @@ let g:UltiSnipsEditSplit = 'vertical'
 let g:UltiSnipsSnippetsDir ="~/.config/nvim/UltiSnips"
 
 " YouCompleteMe
-let g:ycm_key_list_select_completion = ['<c-n>', '<down>']
-let g:ycm_key_list_previous_completion = ['<c-p>', '<up>']
-let g:ycm_min_num_of_chars_for_completion = 2
-let g:ycm_filetype_blacklist = {
- \ 'text' : 1,
- \}
+" let g:ycm_key_list_select_completion = ['<c-n>', '<down>']
+" let g:ycm_key_list_previous_completion = ['<c-p>', '<up>']
+" let g:ycm_min_num_of_chars_for_completion = 2
+" let g:ycm_filetype_blacklist = {
+ " \ 'text' : 1,
+ " \}
 
 
 
@@ -126,31 +126,29 @@ let g:tex_conceal='abdmg'
 let g:tex_flavor='latex'
 " let g:Tex_Folding=0
 let g:latex_view_general_viewer = 'zathura'
-let g:vimtex_view_method = "zathura"
-" sudo dnf install python3-pip redhat-rpm-config; sudo pip3 install neovim-remote, nvr
+let g:vimtex_view_method = 'zathura'
+" sudo dnf install python3-pip redhat-rpm-config; pip3 install neovim-remote; pip3 install nvr
 " zathura -h should display synctex support
 " zathura --version shows a pdf plugin
 " first infos for debugging in
 " <leader>lo to read bottom of output
 " i.e. pip3 nvr,greenlight,msgpack errors
 "
+" pip3 install pynvim, neovim
+"
 " In ~/.config/zathura/zathurarc
 "
 " set synctex true
 " set synctex-editor-command \"nvr --remote-silent %f -c %l"
-" 
+"
 let g:vimtex_compiler_progname='/usr/local/bin/nvr'
 " let g:vimtex_toc_tocdepth = 2
 autocmd FileType plaintex,tex setlocal formatoptions-=t
 let g:vimtex_quickfix_open_on_warning = 0
-let g:vimtex_quickfix_latexlog = {
-          \ 'overfull' : 0,
-          \ 'underfull' : 0,
-\}
 let g:vimtex_compiler_latexmk = {
     \ 'backend' : 'nvim',
     \ 'background' : 1,
-    \ 'build_dir' : '.',
+    \ 'build_dir' : './build',
     \ 'callback' : 1,
     \ 'continuous' : 1,
     \ 'executable' : 'latexmk',
@@ -160,7 +158,7 @@ let g:vimtex_compiler_latexmk = {
     \   '-file-line-error',
     \   '-synctex=1',
     \   '-shell-escape',
-    \   '-interaction=nonstopmode',
+    \   '-interaction=nonstopmode'
     \ ],
 \}
 
