@@ -12,3 +12,4 @@ push @generated_exts, "nls";
 push @generated_exts, "run.xml";
 push @generated_exts, "auxlock";
 $clean_ext = "bbl aux cb2 cb spl nav snm tdo nmo brf nlg nlo nls run.xml auxlock";
+set_tex_cmds( '--shell-escape %O %S' );
