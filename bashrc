@@ -55,8 +55,6 @@ fi
 
 alias sudo="sudo "
 alias vim="nvim"
-alias matlab18b="/usr/local/MATLAB/R2018b/bin/matlab -nodesktop"
-alias matlab18="matlab18b"
 # alias vim="vim --servername foo" # outdated for nvim
 # alias tmux="env TERM=xterm-256color tmux"
 # alias matlab="matlab -softwareopengl"
@@ -70,6 +68,12 @@ alias matlab18="matlab18b"
   # sudo dnf install -y https://github.com/atom/atom/releases/download/v${ATOM_LATEST_VERSION}/atom.x86_64.rpm
 # fi
 
+alias vpntu="sudo openconnect --user mschwege@tuwien.ac.at vpn.tuwien.ac.at"
+
+
 mountacin () {
   sudo mount -t cifs //128.130.84.10/$1 /media/cds/$1 -o credentials=/home/mike/.smbcredentials,dir_mode=0777,file_mode=0777
+}
+umountacin () { # try this
+  sudo umount /media/cds/$1
 }
